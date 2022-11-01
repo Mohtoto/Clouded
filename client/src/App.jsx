@@ -1,13 +1,14 @@
-import Navbar from "./Components/navbar"
-
+import LandingPage from "./LandingPage"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
 
 
   return (
-    <div className="">
-    <Navbar />
+    <div className=" min-h-screen">
+    <LandingPage />
     </div>
   )
 }

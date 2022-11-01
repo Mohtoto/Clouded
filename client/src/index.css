@@ -2,3 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+
+
+    background-color: #D9D9D9;
+  
+    overflow: hidden;
+
+}
+
+.input{
+
+    background-color:#FFFFFF;
+    width: 600px;
+
+    padding: 20px;
+    border: none;
+    outline: none;
+
+
+
+
+
+}
+
+
+.input::placeholder{
+    color: gray;
+  
+}
+
+ .main__content{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+} 
+
+.input__holder{
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 40px;
+
+    margin-bottom: 40px;
+
+}
+.class{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
