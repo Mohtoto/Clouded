@@ -118,6 +118,9 @@ const userVlidation = ()=>{
           </motion.div>
         </div>
       </div>
+
+
+      <div className="w-20 h-20 bg-black"></div>
     </section>
   );
 };
