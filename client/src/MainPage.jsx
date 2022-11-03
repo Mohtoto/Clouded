@@ -12,17 +12,17 @@ const MainPage = () => {
                 <table className="divide-y divide-gray-300 ">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-2 text-xs text-gray-500">ID</th>
+                      <th className="px-6 py-2 text-xs text-gray-500">No</th>
                       <th className="px-6 py-2 text-xs text-gray-500">Name</th>
                       <th className="px-6 py-2 text-xs text-gray-500">Email</th>
                       <th className="px-6 py-2 text-xs text-gray-500">
-                        Created_at
+                        Contact
                       </th>
-                      <th className="px-6 py-2 text-xs text-gray-500">Edit</th>
-                      <th className="px-6 py-2 text-xs text-gray-500">
-                        Delete
+                      <th className="px-6 py-2 text-xs text-gray-500 ">
+                        
                       </th>
-                      <th className="px-6 py-2 text-xs text-gray-500">View</th>
+                      <th className="px-6 py-2 text-xs text-gray-500">Action</th>
+                      <th className="px-6 py-2 text-xs text-gray-500"></th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-300">
@@ -39,7 +39,7 @@ const MainPage = () => {
                       <td className="px-6 py-4 text-sm text-gray-500">
                         2021-1-12
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-2 py-4">
                         <a
                           href="#"
                           className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
@@ -47,7 +47,7 @@ const MainPage = () => {
                           Edit
                         </a>
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-2 py-4">
                         <a
                           href="#"
                           className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
@@ -55,7 +55,7 @@ const MainPage = () => {
                           Delete
                         </a>
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-2 py-4">
                         <a
                           href="#"
                           className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
@@ -64,82 +64,7 @@ const MainPage = () => {
                         </a>
                       </td>
                     </tr>
-                    <tr className="whitespace-nowrap">
-                      <td className="px-6 py-4 text-sm text-gray-500">1</td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900">Jon doe</div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-500">
-                          jhondoe@example.com
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
-                        2021-1-12
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
-                        >
-                          Edit
-                        </a>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
-                        >
-                          Delete
-                        </a>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
-                        >
-                          View
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="whitespace-nowrap">
-                      <td className="px-6 py-4 text-sm text-gray-500">1</td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900">Jon doe</div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-gray-500">
-                          jhondoe@example.com
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
-                        2021-1-12
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
-                        >
-                          Edit
-                        </a>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
-                        >
-                          Delete
-                        </a>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="px-4 py-1 text-sm text-black bg-red-200 rounded-full"
-                        >
-                          View
-                        </a>
-                      </td>
-                    </tr>
+                
                   </tbody>
                 </table>
               </div>

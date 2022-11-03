@@ -42,12 +42,22 @@ const Nav = () => {
         
       </div>
 
-      <ul className="flex gap-4 font-bold text-[#3C7699] text-lg">
+      <motion.ul 
+          initial={{
+            y:-100,
+            opacity:0,
+          }}
+          animate={{
+            y:0,
+            opacity:1
+          }}
+          transition={{duration:0.5}}
+        className="flex gap-4 font-bold text-[#3C7699] text-lg">
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/MainPage'>View</Link></li>
         <li><Link to='/Aboutus'>About us</Link></li>
         
-      </ul>
+      </motion.ul>
 
 
     </nav>
