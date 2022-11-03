@@ -36,10 +36,7 @@ const userVlidation = ()=>{
 
     else{
       
- 
-    return   <div class="px-4 py-4 rounded shadow-lg text-slate-800 bg-slate-300 shadow-slate-500/50" role="alert">
-              A simple tailwind css alert message!
-              </div>
+          alert('Please use the provided information below')
   }
 
 
