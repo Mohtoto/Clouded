@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import data from '../src/database'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Alert from "./Alert";
+import Nav from "./Nav";
 
 
 const LandingPage = () => {
@@ -16,7 +18,7 @@ const LandingPage = () => {
   const [Cursor, SetCursor] = useState("default");
   const [User, setUser] = useState('');
   const [pass, setPass] = useState('');
-
+  const [Loading, setLoading] = useState(false);
 
   const { email } = data.find((user)=> user)
 
@@ -27,24 +29,17 @@ const LandingPage = () => {
 const userVlidation = ()=>{
 
   if(User === email && pass === password){
-
-   
-      toast.success('🦄 Wow so easy!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        })
-      setTimeout(() => navigate('/MainPage'), 1000);
+     
+      setTimeout(() => navigate('/MainPage'), 2000);
+    
     }
+
     else{
       
-      toast.error('Please provide value into each input field')   
-      console.log('failed')
+ 
+    return   <div class="px-4 py-4 rounded shadow-lg text-slate-800 bg-slate-300 shadow-slate-500/50" role="alert">
+              A simple tailwind css alert message!
+              </div>
   }
 
 
@@ -57,6 +52,8 @@ const userVlidation = ()=>{
   return (
     <section>
       <div className=" w-full max-w-6xl m-auto">
+
+        <Nav />
 
         <div className="main__content">
           <motion.h1
@@ -108,7 +105,7 @@ const userVlidation = ()=>{
             </button>
 
             <h2>
-              <a href="#" className="font-bold text-left text-2xl mb-5">
+              <a href="/Register" className="font-bold text-left text-2xl mb-5">
                 Don't have an account?{" "}
                 <span className="underline text-[#3C7699] cursor-pointer">
                   Register
@@ -120,7 +117,7 @@ const userVlidation = ()=>{
       </div>
 
 
-      <div className="w-20 h-20 bg-black"></div>
+      {/* <div className="w-20 h-20 bg-black"></div> */}
     </section>
   );
 };
