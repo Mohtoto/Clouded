@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "./assets/avatar.svg";
+import logo from "../assets/avatar.svg";
 const Nav = () => {
   return (
     <nav className=" w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between ">

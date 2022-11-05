@@ -1,7 +1,27 @@
-import React from "react";
+import React ,{ useEffect, useState }  from "react";
 import Sidebar from "./Sidebar";
+import axios from "axios";
+
 
 const MainPage = () => {
+
+  const [Loading, setLoading] = useState([]);
+
+
+  const datafetch = async ()=>{
+
+    const {data} = await axios.get('http://localhost:8000/api/users')
+
+      setLoading(data)
+  }
+
+  useEffect(() => {
+    datafetch()
+  }, []);
+
+
+
+
   return (
     <>
       <div className="absolute top-1/3 left-1/2  -translate-y-2/4  -translate-x-2/4">
@@ -26,18 +46,21 @@ const MainPage = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-300">
-                    <tr className="whitespace-nowrap">
-                      <td className="px-6 py-4 text-sm text-gray-500">1</td>
+
+                    {Loading.map((item , index) => 
+                   
+                    <tr className="whitespace-nowrap" key={index}>
+                      <td className="px-6 py-4 text-sm text-gray-500" >{index+1}</td>
                       <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900">Jon doe</div>
+                        <div className="text-sm text-gray-900">{item.name}</div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="text-sm text-gray-500">
-                          moh@totoncy@gmail.com
+                          {item.email}
                         </div>
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-500">
-                        2021-1-12
+                        {item.contact}
                       </td>
                       <td className="px-2 py-4">
                         <a
@@ -64,7 +87,7 @@ const MainPage = () => {
                         </a>
                       </td>
                     </tr>
-                
+                     )}
                   </tbody>
                 </table>
               </div>
