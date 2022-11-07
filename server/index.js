@@ -36,7 +36,17 @@ app.get('/' , (req , res)=>{
 
 })
 
+app.post("/api/users/post" , (req, res)=> {
 
+        const { name, email , contact }= req.body
+        const sqlinsert = 'INSERT INTO useres (name , email , contact) VALUES ( ? , ? , ? )'
+        db.query(sqlinsert , [name , email , contact] , (error , result)=> {
+
+            if(error)
+            console.log(error);
+        })
+      
+})  
 
 app.get('/api/users' , (req , res )=> {
 
