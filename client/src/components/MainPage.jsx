@@ -1,23 +1,29 @@
 import React ,{ useEffect, useState }  from "react";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from 'react-router-dom'
 
 
 const MainPage = () => {
 
-  const [Loading, setLoading] = useState([]);
+  const [dataa, setData] = useState([]);
 
 
   const datafetch = async ()=>{
 
     const {data} = await axios.get('http://localhost:8000/api/users')
 
-      setLoading(data)
+    setData(data)
   }
 
   useEffect(() => {
     datafetch()
   }, []);
+
+
+  console.log(dataa)
+
 
 
 
@@ -47,7 +53,7 @@ const MainPage = () => {
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-300">
 
-                    {Loading.map((item , index) => 
+                    {dataa.map((item , index) => 
                    
                     <tr className="whitespace-nowrap" key={index}>
                       <td className="px-6 py-4 text-sm text-gray-500" >{index+1}</td>
@@ -63,12 +69,12 @@ const MainPage = () => {
                         {item.contact}
                       </td>
                       <td className="px-2 py-4">
-                        <a
-                          href="#"
+                        <Link
+                          to={`/update/${item.id}`}
                           className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
                         >
                           Edit
-                        </a>
+                        </Link>
                       </td>
                       <td className="px-2 py-4">
                         <a

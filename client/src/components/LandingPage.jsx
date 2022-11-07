@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import logo from "./assets/avatar.svg";
-// import avat from "./assets/avat.png";
-// import key from "./assets/key.png";
 import { motion } from "framer-motion";
-// import mag from "./assets/mag.png";
 import { Link, useNavigate } from "react-router-dom";
 import data from "../../database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Alert from "../Alert";
 import Nav from "./Nav";
-import axios from "axios";
+import { LockClosedIcon } from '@heroicons/react/20/solid'
+import tailwind from '../assets/tailwind.png'
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -22,27 +18,20 @@ const LandingPage = () => {
 
   const { staff } = data.find((user) => user);
 
+  // const [ text , count ]= useTypewriter({
 
+  //   words:[ 'Details']
+  // })
 
-
-  // console.log(admin);
-
-
-
-  //   const datafetch = async ()=>{
-
-  //   const {data} = await axios.get('http://localhost:8000/api/users')
-
-  //     setLoading(data)
-  // }
-
-  // useEffect(() => {
-  //   datafetch()
-  // }, []);
-
-  // console.log(Loading);
-
-  
+  {
+    /* <Typewriter
+  options={{
+    strings: ['Hello', 'World'],
+    autoStart: true,
+    loop: true,
+  }}
+/> */
+  }
 
   const userVlidation = () => {
     if (User === admin.email && pass === admin.password) {
@@ -57,7 +46,7 @@ const LandingPage = () => {
         theme: "dark",
       });
       setTimeout(() => navigate("/MainPage"), 2000);
-    } else if(User === staff.email && pass === staff.password) {
+    } else if (User === staff.email && pass === staff.password) {
       toast.success("Success login, you are logged in as Staff", {
         position: "top-center",
         autoClose: 2000,
@@ -69,10 +58,7 @@ const LandingPage = () => {
         theme: "dark",
       });
       setTimeout(() => navigate("/MainPage"), 2000);
-    }
-
-    else {
-
+    } else {
       toast.error("Wrong information, please use the provided details", {
         position: "top-center",
         autoClose: 3000,
@@ -86,93 +72,112 @@ const LandingPage = () => {
     }
   };
 
-
-
   return (
     <section>
       <div className=" w-full max-w-6xl m-auto">
         <Nav />
 
-        <div className="main__content">
-          <motion.h1
-            initial={{
-              opacity: 0,
-              y: -500,
-            }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-black font-bold text-8xl max-w-2xl text-left"
-          >
-            <span className="text-[#3C7699] font-bold ">Welcome to</span>
-            <span className="text-7xl"> Clouded.</span>
-          </motion.h1>
+        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{ marginTop:'150px'}}>
+        <div className="w-full max-w-md space-y-8">
+          <div>
+            <div className="flex items-center justify-center">
+            <p className="mt-2 text-sm text-gray-600">
+          
+              <h2 className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+                Made with tailwind
+              </h2>
+            </p>
 
-          <motion.form
-            initial={{
-              opacity: 0,
-            }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-            className="input__holder"
-            // onSubmit={handleSubmit}
-          >
-            {/* <img src={avat} className="h-12 w-12 object-contain" alt="" /> */}
-            <input
-              value={User}
-              onChange={(e) => setUser(e.target.value)}
-              placeholder="E-mail"
-              className="input"
-              required
-              type="email"
-            />
+              <img
+                className=" h-14 w-auto"
+                src={tailwind}
+                alt="Your Company"
+              />
+            </div>
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Or{' '}
+              <a href="#" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+                start your 14-day free trial
+              </a>
+            </p>
+          </div>
+          <div className="mt-8 space-y-6">
+            <input type="hidden" name="remember" defaultValue="true" />
+            <div className="-space-y-px rounded-md shadow-sm">
+              <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Email address"
+                  onChange={(e) =>  setUser(e.target.value)}
+                  value={User}
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Password"
+                  onChange={(e) =>  setPass(e.target.value)}
+                  value={pass}
+                />
+              </div>
+            </div>
 
-            {/* <img src={key} className="h-14 w-12 object-contain" alt="" /> */}
-            <input
-              value={pass}
-              onChange={(e) => setPass(e.target.value)}
-              placeholder="Password"
-              required
-              className="input"
-              type="password"
-            />
-          </motion.form>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 500,
-            }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            className="flex flex-col items-left justify-center "
-          >
-            <h2>
-              <a
-                href="#"
-                className="font-bold underline text-left text-2xl mb-5"
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-[#3C7699] focus:ring-indigo-500"
+                 
+                />
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                  Remember me
+                </label>
+              </div>
+
+              <div className="text-sm">
+                <a href="#" className="font-medium text-[#3C7699] hover:text-[#194663]">
+                  Forgot your password?
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={userVlidation}
+              
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#3C7699] py-2 px-4 text-sm font-medium text-white hover:bg-[#0678be] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Forgot your password?
-              </a>
-            </h2>
-            <button
-              onClick={userVlidation}
-              className=" bg-[#3C7699] cursor-pointer text-white font-bold w-80 h-12 mt-5 mb-5"
-            >
-              Login
-            </button>
-
-            <h2>
-              <a href="/Register" className="font-bold text-left text-2xl mb-5">
-                Don't have an account?{" "}
-                <span className="underline text-[#3C7699] cursor-pointer">
-                  Register
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <LockClosedIcon className="h-5 w-5 text-white group-hover:text-[#030303] " aria-hidden="true" />
                 </span>
-              </a>
-            </h2>
-          </motion.div>
+                Sign in
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* <div className="w-20 h-20 bg-black"></div> */}
+      </div>
     </section>
   );
 };
