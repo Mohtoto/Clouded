@@ -26,20 +26,20 @@ const db = mysql.createPool({
 
 app.get('/' , (req , res)=>{
 
-    // const sqlinsert = "INSERT INTO users (name , email , contact) VALUES ('mohamamd' , 'mohammad@gmail.com',000000)";
-    // db.query(sqlinsert , (error , result) => {
+    const sqlinsert = "INSERT INTO users (name , email , contact) VALUES ('jamal' , 'shegglabo@gmail.com',1230192813)";
+    db.query(sqlinsert , (error , result) => {
 
-    //     console.log('error ', error);
-    //     console.log('result', result);
-    //     res.send('hello express')
-    // })
+        console.log('error ', error);
+        console.log('result', result);
+        res.send('hello express')
+    })
 
 })
 
 app.post("/api/post" , (req, res)=> {
 
         const { name, email , contact }= req.body
-        const sqlinsert = 'INSERT INTO useres (name , email , contact) VALUES ( ? , ? , ? )'
+        const sqlinsert = 'INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )'
         db.query(sqlinsert , [name , email , contact] , (error , result)=> {
 
             if(error)
@@ -57,8 +57,6 @@ app.get('/api/users' , (req , res )=> {
     res.send(result)
    })
 })
-
-
 
 
 

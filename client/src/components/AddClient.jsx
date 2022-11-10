@@ -1,8 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../components/Nav";
 import icons from '../assets/icons.png'
+import { Link } from "react-router-dom";
+ 
+const initialState = { 
+
+  Name: '',
+  email: '',
+  contact: '',
+}
+
+
 
 const AddClient = () => {
+
+  const [state, setstate] = useState(initialState);
+
+const { Name , email , contact } = state
+
+const handleSubmit = (e)=> {
+
+    e.preventDefault()
+
+    if(!Name || !email || !contact){
+
+      toast.error('please provide a value')
+    }
+
+}
+
+const handleChange = ()=>{
+
+   const { name ,value } = e.target
+
+   setstate({...state , [name] : value})
+}
+
+
   return (
     <>
       <Nav />
@@ -12,10 +46,10 @@ const AddClient = () => {
           className="bg-[#111827] w-full max-w-screen-lg rounded-2xl shadow-lg "
           style={{ height: "40rem" }}
         >
-          <div className="w-full h-full flex flex-col mt-24  max-w-screen-sm gap-10 mx-8">
+          <form onSubmit={handleSubmit} className="w-full h-full flex flex-col mt-24  max-w-screen-sm gap-10 mx-8">
             <div>
               <label
-                htmlFor="website-admin"
+                htmlFor="name"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Name
@@ -25,10 +59,14 @@ const AddClient = () => {
                   
                 </span>
                 <input
+
                   type="text"
-                  id="website-admin"
+                  id="name"
                   className="rounded-none rounded-r-lg outline-none  bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="john doe"
+
+                  onChange={handleChange}
+                  value={Name}
                 />
               </div>
             </div>
@@ -38,7 +76,7 @@ const AddClient = () => {
             <div>
               
               <label
-                htmlFor="input-group-1"
+                htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Email
@@ -49,9 +87,11 @@ const AddClient = () => {
                  </span>
                 <input
                   type="email"
-                  id="input-group-1"
+                  id="email"
                   className="bg-gray-50  text-gray-900 text-sm outline-none rounded-r-lg block w-full p-2.5  dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@flowbite.com"
+                  onChange={handleChange}
+                  value={email}
                 />
               </div>
             </div>
@@ -59,7 +99,7 @@ const AddClient = () => {
 
             <div>
               <label
-                htmlFor="input-group-1"
+                htmlFor="contact"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Contact
@@ -70,14 +110,18 @@ const AddClient = () => {
                 </span>
                 <input
                   type="text"
-                  id="input-group-1"
+                  id="contact"
                   className="bg-gray-50 outline-none text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="04270345558"
+                  onChange={handleChange}
+                  value={contact}
                 />
               </div>
             </div>
+            <Link to={'/MainPage'}>
               <button className="bg-white h-14 w-full max-w-xs rounded-md hover:bg-[#3C7699] font-bold  hover:text-white">Add Client</button>
-          </div>
+            </Link>
+          </form>
 
         </div>
       </div>
