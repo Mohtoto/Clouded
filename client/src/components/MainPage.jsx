@@ -8,7 +8,7 @@ const MainPage = () => {
   const [dataa, setData] = useState([]);
 
   const datafetch = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/users");
+    const { data } = await axios.get("http://localhost:8000/users");
 
     setData(data);
   };

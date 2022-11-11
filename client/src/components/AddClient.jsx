@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import icons from '../assets/icons.png'
-import { Link } from "react-router-dom";
- 
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+
 const initialState = { 
 
-  Name: '',
+  name: '',
   email: '',
   contact: '',
 }
@@ -13,28 +15,45 @@ const initialState = {
 
 
 const AddClient = () => {
+  const navigate = useNavigate()
 
   const [state, setstate] = useState(initialState);
 
-const { Name , email , contact } = state
+const { name , email , contact } = state
 
 const handleSubmit = (e)=> {
 
     e.preventDefault()
 
-    if(!Name || !email || !contact){
+    if(!name || !email || !contact){
 
-      toast.error('please provide a value')
+      toast.error('please provide a value in each input field')
+    }
+
+    else {
+
+      axios.post('http://localhost:8000/users', {
+
+        name ,email, contact 
+      }).then(()=> {
+
+        setstate({ name: '' , email: ' ', contact:'',})
+      }).catch((err)=> toast.error(err.response.data))
+      setTimeout(()=> navigate('/MainPage'), 500)
     }
 
 }
 
-const handleChange = ()=>{
 
-   const { name ,value } = e.target
 
-   setstate({...state , [name] : value})
+const handleChange = (e)=>{
+
+  
+
+   setstate((prev )=> ({...prev , [e.target.name]: e.target.value}))
 }
+
+
 
 
   return (
@@ -62,11 +81,12 @@ const handleChange = ()=>{
 
                   type="text"
                   id="name"
+                  name="name"
                   className="rounded-none rounded-r-lg outline-none  bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="john doe"
 
                   onChange={handleChange}
-                  value={Name}
+                  // value={name}
                 />
               </div>
             </div>
@@ -91,7 +111,8 @@ const handleChange = ()=>{
                   className="bg-gray-50  text-gray-900 text-sm outline-none rounded-r-lg block w-full p-2.5  dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@flowbite.com"
                   onChange={handleChange}
-                  value={email}
+                  name="email"
+                  // value={email}
                 />
               </div>
             </div>
@@ -114,12 +135,15 @@ const handleChange = ()=>{
                   className="bg-gray-50 outline-none text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="04270345558"
                   onChange={handleChange}
-                  value={contact}
+                  // value={contact}
+                  name="contact"
                 />
               </div>
             </div>
+              <button type="submit"  className="bg-white h-14 w-full max-w-xs rounded-md hover:bg-[#3C7699] font-bold  hover:text-white">Add Client</button>
             <Link to={'/MainPage'}>
-              <button className="bg-white h-14 w-full max-w-xs rounded-md hover:bg-[#3C7699] font-bold  hover:text-white">Add Client</button>
+                <button  className="bg-white h-14 w-full max-w-xs rounded-md hover:bg-[#3C7699] font-bold  hover:text-white">Go back</button>
+
             </Link>
           </form>
 

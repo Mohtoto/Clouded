@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const PORT = 8000
 const mysql = require('mysql2')
+const { json } = require('express')
 const app = express()
 // ---------------------------------------------------------------------------//
 
@@ -24,31 +25,21 @@ const db = mysql.createPool({
 
 //-----------------------------------------------------------------------
 
-app.get('/' , (req , res)=>{
+// app.get('/' , (req , res)=>{
 
-    const sqlinsert = "INSERT INTO users (name , email , contact) VALUES ('jamal' , 'shegglabo@gmail.com',1230192813)";
-    db.query(sqlinsert , (error , result) => {
+//     const sqlinsert = "INSERT INTO users (name , email , contact) VALUES ('jamal' , 'shegglabo@gmail.com',1230192813)";
+//     db.query(sqlinsert , (error , result) => {
 
-        console.log('error ', error);
-        console.log('result', result);
-        res.send('hello express')
-    })
+//         console.log('error ', error);
+//         console.log('result', result);
+//         res.send('hello express')
+//     })
 
-})
+// })
 
-app.post("/api/post" , (req, res)=> {
 
-        const { name, email , contact }= req.body
-        const sqlinsert = 'INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )'
-        db.query(sqlinsert , [name , email , contact] , (error , result)=> {
 
-            if(error)
-            console.log(error);
-        })
-      
-})  
-
-app.get('/api/users' , (req , res )=> {
+app.get('/users' , (req , res )=> {
 
    const sqlget = 'SELECT * FROM users'
    db.query(sqlget , (error , result)=>{
@@ -58,6 +49,28 @@ app.get('/api/users' , (req , res )=> {
    })
 })
 
+app.post("/users" , (req, res)=> {
+
+    const { name, email , contact }= req.body
+    const sqlinsert = 'INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )'
+    db.query(sqlinsert , [name , email , contact] , (error , result)=> {
+
+        if(error){
+
+            console.log(error);
+        }
+        else{
+
+            console.log('updated success')
+        }
+        
+    })
+
+
+
+
+  
+})  
 
 
 
