@@ -73,7 +73,31 @@ app.post("/users" , (req, res)=> {
 })  
 
 
+// app.put('/users/:id' , (req, res)=> {
 
+//     const sqlput = 'UPDATE '
+// })
+
+
+app.delete('/users:id' , (req , res)=>{
+
+    const userid = req.params.id
+
+    const sqlDelete = 'DELETE FROM users WHERE id = ?'
+
+    db.query(sqlDelete ,[userid] , (err,result)=>{
+
+       if(err){
+
+        console.log(err)
+       }
+       else{
+
+            res.send(result)
+
+       }
+    })
+})
 
 
 

@@ -17,7 +17,21 @@ const MainPage = () => {
     datafetch();
   }, []);
 
-  console.log(dataa);
+
+
+
+  const handleDelete = async (id) =>{
+
+    try {
+      await axios.delete('http://localhost:8000/users/'+id)
+    
+      window.location.reload()
+
+    } catch (err) {
+     console.log(err);
+    }
+    
+  }
 
   return (
     <div className="flex w-full">
@@ -100,16 +114,19 @@ const MainPage = () => {
                             to={`/update/${item.id}`}
                             className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
                           >
-                            Edit
+                            Update
                           </Link>
                         </td>
                         <td className="px-2 py-4">
-                          <a
-                            href="#"
+                          <button
+                          onClick={()=> handleDelete(item.id)}
+
+                        
+                           
                             className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
                           >
                             Delete
-                          </a>
+                          </button>
                         </td>
                         <td className="px-2 py-4">
                           <a
