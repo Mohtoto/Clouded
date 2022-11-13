@@ -15,43 +15,6 @@ const initialState = {
 
 
 const AddClient = () => {
-  const navigate = useNavigate()
-
-  const [state, setstate] = useState(initialState);
-
-const { name , email , contact } = state
-
-const handleSubmit = (e)=> {
-
-    e.preventDefault()
-
-    if(!name || !email || !contact){
-
-      toast.error('please provide a value in each input field')
-    }
-
-    else {
-
-      axios.post('http://localhost:8000/users', {
-
-        name ,email, contact 
-      }).then(()=> {
-
-        setstate({ name: '' , email: ' ', contact:'',})
-      }).catch((err)=> toast.error(err.response.data))
-      setTimeout(()=> navigate('/MainPage'), 500)
-    }
-
-}
-
-
-
-const handleChange = (e)=>{
-
-  
-
-   setstate((prev )=> ({...prev , [e.target.name]: e.target.value}))
-}
 
 
 
@@ -65,7 +28,7 @@ const handleChange = (e)=>{
           className="bg-[#111827] w-full max-w-screen-lg rounded-2xl shadow-lg "
           style={{ height: "40rem" }}
         >
-          <form onSubmit={handleSubmit} className="w-full h-full flex flex-col mt-24  max-w-screen-sm gap-10 mx-8">
+          <form  className="w-full h-full flex flex-col mt-24  max-w-screen-sm gap-10 mx-8">
             <div>
               <label
                 htmlFor="name"
@@ -85,8 +48,8 @@ const handleChange = (e)=>{
                   className="rounded-none rounded-r-lg outline-none  bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="john doe"
 
-                  onChange={handleChange}
-                  // value={name}
+                 
+                
                 />
               </div>
             </div>
@@ -110,9 +73,8 @@ const handleChange = (e)=>{
                   id="email"
                   className="bg-gray-50  text-gray-900 text-sm outline-none rounded-r-lg block w-full p-2.5  dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@flowbite.com"
-                  onChange={handleChange}
                   name="email"
-                  // value={email}
+              
                 />
               </div>
             </div>
@@ -134,8 +96,7 @@ const handleChange = (e)=>{
                   id="contact"
                   className="bg-gray-50 outline-none text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="04270345558"
-                  onChange={handleChange}
-                  // value={contact}
+                 
                   name="contact"
                 />
               </div>

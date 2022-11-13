@@ -79,25 +79,42 @@ app.post("/users" , (req, res)=> {
 // })
 
 
-app.delete('/users:id' , (req , res)=>{
+app.delete('/users/:id', (req,res)=> {
 
-    const userid = req.params.id
-
-    const sqlDelete = 'DELETE FROM users WHERE id = ?'
-
-    db.query(sqlDelete ,[userid] , (err,result)=>{
-
-       if(err){
-
-        console.log(err)
-       }
-       else{
-
-            res.send(result)
-
-       }
+    const {id } = req.params
+    const sqlremove = "DELETE FROM contact_db WHERE id= ?";
+    db.query( sqlremove , id, (error , result)=> {
+  
+      if(error){
+  
+        console.log(error);
+      }
     })
-})
+  })
+
+
+  app.put('/users/:id' , (req,res)=>{
+
+    const { id } = req.params
+    const { name , email , contact } = req.body
+
+    const sqlUpdate = 'UPDATE users SET name= ? , email = ? , contact =? WHERE id = ? '
+
+    db.query(sqlUpdate , [name, email , contact ,id]  , (err ,result)=> {
+
+        if(err){
+            console.log(err);
+
+        }
+
+        else {
+
+            req.send(result)
+        }
+    })
+  })
+  
+
 
 
 

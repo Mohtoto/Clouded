@@ -20,19 +20,6 @@ const MainPage = () => {
 
 
 
-  const handleDelete = async (id) =>{
-
-    try {
-      await axios.delete('http://localhost:8000/users/'+id)
-    
-      window.location.reload()
-
-    } catch (err) {
-     console.log(err);
-    }
-    
-  }
-
   return (
     <div className="flex w-full">
       <Sidebar />
@@ -119,8 +106,7 @@ const MainPage = () => {
                         </td>
                         <td className="px-2 py-4">
                           <button
-                          onClick={()=> handleDelete(item.id)}
-
+                    
                         
                            
                             className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"

@@ -17,6 +17,7 @@ function App() {
         <Route  path="/MainPage" element={<MainPage />} />
         <Route  path="/addClient" element={<AddClient />} />
         <Route  path="/Register" element={<Register />} />
+     
       </Routes>
     </div>
     </Router>
