@@ -81,12 +81,12 @@ const LandingPage = () => {
         <div className="w-full max-w-md space-y-8">
           <div>
             <div className="flex items-center justify-center">
-            <p className="mt-2 text-sm text-gray-600">
+            <div className="mt-2 text-sm text-gray-600">
           
               <h2 className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
                 Made with tailwind
               </h2>
-            </p>
+            </div>
 
               <img
                 className=" h-14 w-auto"

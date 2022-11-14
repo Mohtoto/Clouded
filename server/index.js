@@ -39,7 +39,7 @@ const db = mysql.createPool({
 
 
 
-app.get('/users' , (req , res )=> {
+app.get('/api/get' , (req , res )=> {
 
    const sqlget = 'SELECT * FROM users'
    db.query(sqlget , (error , result)=>{
@@ -49,7 +49,7 @@ app.get('/users' , (req , res )=> {
    })
 })
 
-app.post("/users" , (req, res)=> {
+app.post("/api/post" , (req, res)=> {
 
     const { name, email , contact }= req.body
     const sqlinsert = 'INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )'
@@ -59,10 +59,7 @@ app.post("/users" , (req, res)=> {
 
             console.log(error);
         }
-        else{
-
-            console.log('updated success')
-        }
+        
         
     })
 

@@ -6,6 +6,8 @@ import MainPage from "./components/MainPage";
 import Nav from "./components/Nav";
 import Register from "./components/Register";
 import AddClient from "./components/AddClient";
+import View from "./components/View";
+import Update from "./components/Update";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route  path="/MainPage" element={<MainPage />} />
         <Route  path="/addClient" element={<AddClient />} />
         <Route  path="/Register" element={<Register />} />
+        <Route  path="/View" element={<View />} />
+        <Route  path="/Update/:id" element={<Update />} />
      
       </Routes>
     </div>

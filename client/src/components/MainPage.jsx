@@ -8,17 +8,20 @@ const MainPage = () => {
   const [dataa, setData] = useState([]);
 
   const datafetch = async () => {
-    const { data } = await axios.get("http://localhost:8000/users");
+    const { data } = await axios.get("http://localhost:8000/api/get");
 
     setData(data);
   };
+
+
+
 
   useEffect(() => {
     datafetch();
   }, []);
 
 
-
+// console.log(dataa);
 
   return (
     <div className="flex w-full">
@@ -105,22 +108,24 @@ const MainPage = () => {
                           </Link>
                         </td>
                         <td className="px-2 py-4">
+
+                         
                           <button
                     
-                        
-                           
                             className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
                           >
                             Delete
                           </button>
+                          
+                        
                         </td>
                         <td className="px-2 py-4">
-                          <a
-                            href="#"
+                          <Link to={'/View'}
+                           
                             className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
                           >
                             View
-                          </a>
+                          </Link>
                         </td>
                       </tr>
                     ))}
