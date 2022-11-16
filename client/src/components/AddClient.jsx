@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import icons from "../assets/icons.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
@@ -16,6 +16,14 @@ const AddClient = () => {
   const navigate = useNavigate()
 
   const { name, email, contact } = state;
+
+  const { id } = useParams()
+
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/get/'+id).then((resp)=> setstate({...resp.data[0]}))
+
+  }, [id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +47,7 @@ const AddClient = () => {
 
         setstate({ name : '' , email: '' , contact : ''})
       }).catch((err)=> toast.error(err.response.data))
-
+        toast.success('Contact added Successfully')
       setTimeout(() => navigate('/MainPage'), 500);
 
     }
@@ -65,7 +73,7 @@ const AddClient = () => {
             name="name"
             placeholder="John Doe"
             className="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            value={name}
+            value={name || ''}
             onChange={handleInputChange}
           />
       
@@ -80,7 +88,7 @@ const AddClient = () => {
             name="email"
             placeholder="anthony@rhcp.com"
             className="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            value={email}
+            value={email || ''}
             onChange={handleInputChange}
           />
 
@@ -94,7 +102,7 @@ const AddClient = () => {
            name="contact"
             placeholder="04270388779"
             className="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            value={contact}
+            value={contact || ''}
             onChange={handleInputChange}
           />
     

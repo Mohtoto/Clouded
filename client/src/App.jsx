@@ -20,7 +20,7 @@ function App() {
         <Route  path="/addClient" element={<AddClient />} />
         <Route  path="/Register" element={<Register />} />
         <Route  path="/View" element={<View />} />
-        <Route  path="/Update/:id" element={<Update />} />
+        <Route  path="/Update/:id" element={<AddClient />} />
      
       </Routes>
     </div>

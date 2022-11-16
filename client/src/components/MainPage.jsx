@@ -21,6 +21,16 @@ const MainPage = () => {
   }, []);
 
 
+  const HandleDelete= (id)=>{
+
+    if(window.confirm('Are you sure you want to delete the contact ?')){
+
+      axios.delete('http://localhost:8000/api/remove/' + id)
+      toast.success('Contact deleted succesfully')
+      setTimeout(() => datafetch(), 500);
+    }
+  } 
+
 // console.log(dataa);
 
   return (
@@ -111,7 +121,7 @@ const MainPage = () => {
 
                          
                           <button
-                    
+                            onClick={() => HandleDelete(item.id)}
                             className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
                           >
                             Delete

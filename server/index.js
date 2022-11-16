@@ -1,27 +1,25 @@
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const PORT = 8000
-const mysql = require('mysql2')
-const { json } = require('express')
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const PORT = 8000;
+const mysql = require("mysql2");
+const { json } = require("express");
+const app = express();
 // ---------------------------------------------------------------------------//
 
-app.use(cors())
-app.use(express.json())
-app.use(bodyParser.urlencoded({extended : true}))
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ---------------------------------------------------------------------------//
 //Creating a connection with the mysql database
 
-
 const db = mysql.createPool({
-
-    host:'localhost',
-    user:'root',
-    password:'neymarjr11',
-    database:'clients'
-})
+  host: "localhost",
+  user: "root",
+  password: "neymarjr11",
+  database: "clients",
+});
 
 //-----------------------------------------------------------------------
 
@@ -39,80 +37,86 @@ const db = mysql.createPool({
 
 
 
-app.get('/api/get' , (req , res )=> {
+app.get("/api/get", (req, res) => {
+  const sqlget = "SELECT * FROM users";
+  db.query(sqlget, (error, result) => {
+    console.log("error", error);
+    res.send(result);
+  });
+});
 
-   const sqlget = 'SELECT * FROM users'
-   db.query(sqlget , (error , result)=>{
+app.post("/api/post", (req, res) => {
+  const { name, email, contact } = req.body;
+  const sqlinsert =
+    "INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )";
+  db.query(sqlinsert, [name, email, contact], (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+  });
+});
 
-    console.log('error', error);
-    res.send(result)
-   })
+
+
+app.delete('/api/remove/:id' , (req, res) => {
+
+  const { id } = req.params
+
+  const SqlRemove = 'DELETE FROM users WHERE id=?'
+
+  db.query(SqlRemove ,id , (err , result)=> {
+
+    if(err){
+
+      console.log(err);
+    }
+  })
+
+
 })
 
-app.post("/api/post" , (req, res)=> {
 
-    const { name, email , contact }= req.body
-    const sqlinsert = 'INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )'
-    db.query(sqlinsert , [name , email , contact] , (error , result)=> {
+app.put('/api/put/:id' , (req, res) => {
 
-        if(error){
+  const { id } = req.params
 
-            console.log(error);
-        }
-        
-        
-    })
+  const { name, email , contact}= req.body
 
+  const sqlget = 'UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? '
 
+  db.query(sqlget ,[ name , email , contact , id] , (err , result)=> {
 
+    if(err){
+      console.log(err);
 
-  
-})  
-
-
-// app.put('/users/:id' , (req, res)=> {
-
-//     const sqlput = 'UPDATE '
-// })
-
-
-app.delete('/users/:id', (req,res)=> {
-
-    const {id } = req.params
-    const sqlremove = "DELETE FROM contact_db WHERE id= ?";
-    db.query( sqlremove , id, (error , result)=> {
-  
-      if(error){
-  
-        console.log(error);
-      }
-    })
+    }
+    res.send(result)
   })
 
 
-  app.put('/users/:id' , (req,res)=>{
+})
 
-    const { id } = req.params
-    const { name , email , contact } = req.body
 
-    const sqlUpdate = 'UPDATE users SET name= ? , email = ? , contact =? WHERE id = ? '
 
-    db.query(sqlUpdate , [name, email , contact ,id]  , (err ,result)=> {
+app.get('/api/get/:id' , (req, res) => {
 
-        if(err){
-            console.log(err);
+  const { id } = req.params
 
-        }
+  const sqlget = 'SELECT * FROM users WHERE id=?'
 
-        else {
+  db.query(sqlget ,id , (err , result)=> {
 
-            req.send(result)
-        }
-    })
+    if(err){
+        console.log(err);
+    }
+    res.send(result)
   })
-  
+
+
+})
 
 
 
-
-app.listen(PORT , ()=> console.log(`server running at : http://localhost:${PORT}`))
+app.listen(PORT, () =>
+  console.log(`server running at : http://localhost:${PORT}`)
+);
