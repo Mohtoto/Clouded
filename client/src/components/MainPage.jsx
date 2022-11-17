@@ -130,7 +130,7 @@ const MainPage = () => {
                         
                         </td>
                         <td className="px-2 py-4">
-                          <Link to={'/View'}
+                          <Link to={'/View/'+item.id}
                            
                             className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
                           >

@@ -40,17 +40,31 @@ const AddClient = () => {
 
     }
     else {
+      if(!id){
 
-      axios.post('http://localhost:8000/api/post' , {
-        name , email , contact
-      }).then(()=> {
+        axios.post('http://localhost:8000/api/post' , {
+          name , email , contact
+        }).then(()=> {
+  
+          setstate({ name : '' , email: '' , contact : ''})
+        }).catch((err)=> toast.error(err.response.data))
+          toast.success('Contact added Successfully')
+          
+          
+        }else {
 
-        setstate({ name : '' , email: '' , contact : ''})
-      }).catch((err)=> toast.error(err.response.data))
-        toast.success('Contact added Successfully')
-      setTimeout(() => navigate('/MainPage'), 500);
-
-    }
+          axios.put('http://localhost:8000/api/update/'+id , {
+            name , email , contact
+          }).then(()=> {
+    
+            setstate({ name : '' , email: '' , contact : ''})
+          }).catch((err)=> toast.error(err.response.data))
+            toast.success('Contact Updated Successfully')
+            
+        }
+        
+        setTimeout(() => navigate('/MainPage'), 500);
+      }
 
   };
 
@@ -111,7 +125,7 @@ const AddClient = () => {
         <input
           type="submit"
       
-          value="Save"
+          value={id ? 'Update' : 'Save'}
           className=" w-full bg-[#40453e] text-white py-4 px-5  mx-2 border-none rounded-md cursor-none"
         />
 

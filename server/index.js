@@ -76,15 +76,15 @@ app.delete('/api/remove/:id' , (req, res) => {
 })
 
 
-app.put('/api/put/:id' , (req, res) => {
+app.put('/api/update/:id' , (req, res) => {
 
   const { id } = req.params
 
   const { name, email , contact}= req.body
 
-  const sqlget = 'UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? '
+  const sqlUpdate = 'UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? '
 
-  db.query(sqlget ,[ name , email , contact , id] , (err , result)=> {
+  db.query(sqlUpdate ,[ name , email , contact , id] , (err , result)=> {
 
     if(err){
       console.log(err);
