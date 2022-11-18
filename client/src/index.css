@@ -117,3 +117,32 @@ input[type="submit"]:hover{
 
     background-color: #45a049;
 }
+
+@media only screen and (max-width: 768px){
+
+
+
+    .group{
+
+        display: none;
+    }
+
+}
+
+.menu{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+
+    /* opacity: 0; */
+    z-index: 999;
+    color: white;
+   
+
+}
+
+

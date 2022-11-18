@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import tailwind from '../assets/tailwind.png'
+import BurgerMenu from "./BurgerMenu";
+
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -75,8 +77,19 @@ const LandingPage = () => {
   return (
     <section>
       <div className=" w-full max-w-6xl m-auto">
+      <div className="menu">
+        <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-lg font-bold ">
+        <h2>Home</h2>
+        <h2>Contact</h2>
+        <h2>Gmae</h2>
+
+        </div>
+      </div>
         <Nav />
 
+        {/* <BurgerMenu /> */}
+
+     
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{ marginTop:'150px'}}>
         <div className="w-full max-w-md space-y-8">
           <div>
