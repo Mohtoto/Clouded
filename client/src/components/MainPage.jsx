@@ -13,63 +13,55 @@ const MainPage = () => {
     setData(data);
   };
 
-
-
-
   useEffect(() => {
     datafetch();
   }, []);
 
-
-  const HandleDelete= (id)=>{
-
-    if(window.confirm('Are you sure you want to delete the contact ?')){
-
-      axios.delete('http://localhost:8000/api/remove/' + id)
-      toast.success('Contact deleted succesfully')
+  const HandleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete the contact ?")) {
+      axios.delete("http://localhost:8000/api/remove/" + id);
+      toast.success("Contact deleted succesfully");
       setTimeout(() => datafetch(), 500);
     }
-  } 
+  };
 
-// console.log(dataa);
+  console.log(dataa);
 
   return (
     <div className="flex w-full">
       <Sidebar />
       <div className="row">
-   
-   
-      <div className="container mx-auto mt-12">
-                <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3 mx-4">
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Clients
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            12,00
-                        </div>
-                    </div>
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow ">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Total Profit
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            $ 450k
-                        </div>
-                    </div>
-                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
-                        <div className="text-sm font-medium text-gray-500 truncate">
-                            Total Orders
-                        </div>
-                        <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            20k
-                        </div>
-                    </div>
+        <div className="container mx-auto mt-12">
+        
+            <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3 mx-4">
+              <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
+                <div className="text-sm font-medium text-gray-500 truncate">
+                  Clients
                 </div>
-            </div>
-     
-       
-    
+                <div className="mt-1 text-3xl font-semibold text-gray-900">
+                  2
+                </div>
+              </div>
+              <div className="w-full px-4 py-5 bg-white rounded-lg shadow ">
+                <div className="text-sm font-medium text-gray-500 truncate">
+                  Total Profit
+                </div>
+                <div className="mt-1 text-3xl font-semibold text-gray-900">
+                  $ 450k
+                </div>
+              </div>
+              <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
+                <div className="text-sm font-medium text-gray-500 truncate">
+                  Total Orders
+                </div>
+                <div className="mt-1 text-3xl font-semibold text-gray-900">
+                  20k
+                </div>
+              </div>
+            </div>;
+        
+        </div>
+
         <div className="container flex justify-center mx-auto  mt-80">
           <div className="flex flex-col">
             <div className="w-full">
@@ -118,20 +110,16 @@ const MainPage = () => {
                           </Link>
                         </td>
                         <td className="px-2 py-4">
-
-                         
                           <button
                             onClick={() => HandleDelete(item.id)}
                             className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
                           >
                             Delete
                           </button>
-                          
-                        
                         </td>
                         <td className="px-2 py-4">
-                          <Link to={'/View/'+item.id}
-                           
+                          <Link
+                            to={"/View/" + item.id}
                             className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
                           >
                             View
@@ -146,9 +134,7 @@ const MainPage = () => {
           </div>
         </div>
       </div>
-      
     </div>
-   
   );
 };
 

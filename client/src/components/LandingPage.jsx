@@ -77,14 +77,7 @@ const LandingPage = () => {
   return (
     <section>
       <div className=" w-full max-w-6xl m-auto">
-      <div className="menu">
-        <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-lg font-bold ">
-        <h2>Home</h2>
-        <h2>Contact</h2>
-        <h2>Gmae</h2>
 
-        </div>
-      </div>
         <Nav />
 
         {/* <BurgerMenu /> */}
@@ -112,8 +105,8 @@ const LandingPage = () => {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
-              <a href="#" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
-                start your 14-day free trial
+              <a href="/" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+                Register here for an account
               </a>
             </p>
           </div>
