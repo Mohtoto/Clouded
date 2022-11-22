@@ -148,41 +148,108 @@ input[type="submit"]:hover{
 }
 
 
-#hide{
+/* #hide{
 
     display: flex;
    }
 
+ */
 
+
+ .menu__backdrop {
+    position: absolute;
+    background-color: #0d7bbe;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    transition: all 300ms ease;
+    opacity: 0;
+    transform: translate(100%);
+  }
+
+
+
+  .btn__menu {
+    background-color: transparent;
+    font-size: 32px;
+    border: none;
+    color: #0d7bbe;
+    display: none;
+  }
+
+  .menu--open {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+  .menu__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu__list {
+    padding: 32px 0;
+  }
+  
+  .menu__link {
+    color: white;
+    font-size: 40px;
+  }
+  
+  .btn__menu--close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 8px;
+    color: white;
+  }
+  
+  
+  
 
 
 @media only screen and (max-width: 768px){
 
 
 
-      .lists{
+      .lists > li{
  
         
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        font-size: 32px;
-        color: #D9D9D9;
+      
+      display: none;
+       
 
+    
     } 
+
+  
+
+
     .logocont{
  
      display: none;
  
     }
      
-   .button{
+   /* .button{
 
      display: block;
-   }
+   } */
 
-   #hide{
+   /* #burger-menu{
 
     position: absolute;
     left: 0px;
@@ -190,36 +257,33 @@ input[type="submit"]:hover{
     height: 100%;
     width: 100%;
     background-color: #0d7bbe;
-    z-index: 999;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #ccc;
 
-        opacity: 0;
-    animation: animate-profile-picture 800ms 200ms backwards;
+        
 
-   }
+   } */
 
-
-  @keyframes animate-profile-picture{
-    0%{
-       opacity:1;
-    }
-   
-    100%{
-        transform: translateX(-100);
-    }
-}
+/* 
    .button{
 
     position: absolute;
     top: 20px;
     left: 20px;
 
-   }
+   } */
 
+   .btn__menu {
+    display: block;
+  }
+
+ 
 
 
 }
+
+
