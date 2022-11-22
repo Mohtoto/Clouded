@@ -58,7 +58,7 @@ const MainPage = () => {
                   20k
                 </div>
               </div>
-            </div>;
+            </div>
         
         </div>
 

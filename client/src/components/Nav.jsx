@@ -1,14 +1,22 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/avatar.svg";
+import ReorderIcon from '@mui/icons-material/Reorder';
 const Nav = () => {
+
+const [menu, setMenu] = useState(true);
+
+
+
+
   return (
-    <nav className="group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative">
+    <nav className="group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative "  id={menu ? 'hide' : ''}>
 
 
 
-      <div className="flex items-center">
+      <div className="logocont flex items-center"
+         >
         <motion.img
           initial={{
             y: -100,
@@ -54,7 +62,7 @@ const Nav = () => {
             opacity:1
           }}
           transition={{duration:0.5}}
-        className="flex gap-4 font-bold text-[#3C7699] text-lg">
+        className="lists flex gap-4 font-bold text-[#3C7699] text-lg">
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/MainPage'>View</Link></li>
         <li><Link to='/Aboutus'>About us</Link></li>
@@ -62,6 +70,8 @@ const Nav = () => {
       </motion.ul>
 
 
+
+      <button className=' button h-5 w-14 text-white' onClick={()=> setMenu(!menu)}><ReorderIcon /></button>
     </nav>
   );
 };
