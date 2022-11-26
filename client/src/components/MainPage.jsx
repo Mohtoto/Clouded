@@ -31,7 +31,7 @@ const MainPage = () => {
     <div className="flex w-full">
       <Sidebar />
       <div className="row">
-        <div className="container mx-auto mt-12">
+        <div className=" group-bubbles container mx-auto mt-12">
         
             <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3 mx-4">
               <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
@@ -62,7 +62,7 @@ const MainPage = () => {
         
         </div>
 
-        <div className="container flex justify-center mx-auto  mt-80">
+        <div className="table__info container flex justify-center mx-auto  mt-80">
           <div className="flex flex-col">
             <div className="w-full">
               <div className="border-b border-gray-200 shadow">

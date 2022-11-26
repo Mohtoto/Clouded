@@ -20,20 +20,9 @@ const LandingPage = () => {
 
   const { staff } = data.find((user) => user);
 
-  // const [ text , count ]= useTypewriter({
 
-  //   words:[ 'Details']
-  // })
-
-  {
-    /* <Typewriter
-  options={{
-    strings: ['Hello', 'World'],
-    autoStart: true,
-    loop: true,
-  }}
-/> */
-  }
+  
+ 
 
   const userVlidation = () => {
     if (User === admin.email && pass === admin.password) {
@@ -80,7 +69,7 @@ const LandingPage = () => {
 
         <Nav />
 
-        {/* <BurgerMenu /> */}
+       
 
      
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{ marginTop:'150px'}}>

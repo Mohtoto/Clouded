@@ -3,29 +3,27 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/avatar.svg";
 import ReorderIcon from "@mui/icons-material/Reorder";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CloseIcon from '@mui/icons-material/Close';
 const Nav = () => {
-  const [menu, setMenu] = useState(false);
+ 
+const [menu, setMenu] = useState(false);
 
-
-  function openMenu(){
+  const openMenu =() => {
 
     document.body.classList +=' menu--open'
 }
 
 
-function closeMenu(){
+const closeMenu =() =>{
 
     document.body.classList.remove('menu--open')
 }
 
 
+
   return (
     <nav
-      className="group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative "
-      id={menu ? "burger-menu" : ""}
-    >
+      className="group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative " >
       <div className="logocont flex items-center">
         <motion.img
           initial={{
@@ -112,12 +110,7 @@ function closeMenu(){
           </li>
         </ul>
       </div>
-      <button
-        className="button h-5 w-14 text-white hidden"
-        onClick={() => setMenu(!menu)}
-      >
-        <ReorderIcon />
-      </button>
+     
     </nav>
   );
 };

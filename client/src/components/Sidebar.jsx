@@ -4,7 +4,7 @@ import logo from "../assets/avatar.svg";
 
 const Sidebar = () => {
   return (
-        <div className="flex">
+        <div className="sidebar flex">
             <div className="flex flex-col h-screen p-3 bg-[#3C7699] shadow w-60">
                 <div className="space-y-3">
                     <div className="flex items-center">

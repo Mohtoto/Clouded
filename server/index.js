@@ -115,7 +115,27 @@ app.get('/api/get/:id' , (req, res) => {
 
 })
 
+//------------------------------------------Register api ---------------------------------------------------// 
 
+app.get('/api/Register' , (req,res)=>{
+
+  const sqlreg = "INSERT INTO register (email , password) VALUES ('mohtotonchy@gmail.com' , '1998')";
+
+  db.query(sqlreg, (error , result)=>{
+
+    
+      console.log(error);
+      console.log(result);
+   
+  })
+})
+
+
+
+
+
+
+//------------------------------------------server running ---------------------------------------------------// 
 
 app.listen(PORT, () =>
   console.log(`server running at : http://localhost:${PORT}`)
