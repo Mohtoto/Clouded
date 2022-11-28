@@ -3,10 +3,28 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import Nav from './Nav'
 
+const initialState  = { 
+
+  email : '',
+  password : '',}
+
+
 const Register = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const [state, setState] = useState(initialState);
+const { email , password} = state
+
+const handleEvent = (e)=>{
+
+  const { name , value } = e.target
+
+  setState({...state , [name] : value})
+
+
+}
+
+
+
 
 const HandleSubmit =(e)=>{
   e.preventdefault()
@@ -51,12 +69,12 @@ console.log(password);
            
           <div className='flex flex-col items-center justify-center w-full gap-5'>
               <label htmlFor="email" className='font-bold text-3xl'>Email</label>
-              <input type="email" className='w-full max-w-2xl h-14 rounded-sm outline-none p-5' value={email} onChange={(e)=> setEmail(e.target.value)}/>
+              <input name='email' type="email" className='w-full max-w-2xl h-14 rounded-sm outline-none p-5' value={email} onChange={handleEvent}/>
             </div>
 
             <div className='flex flex-col items-center justify-center w-full gap-5'>
               <label htmlFor="password" className='font-bold text-3xl'>Password</label>
-              <input type="password" className='w-full max-w-2xl h-14 rounded-sm outline-none p-5'value={password} onChange={(e)=> setPassword(e.target.value)} />
+              <input name='password' type="password" className='w-full max-w-2xl h-14 rounded-sm outline-none p-5' value={password} onChange={handleEvent} />
             </div>
 
           </div>
