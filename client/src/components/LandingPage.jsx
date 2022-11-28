@@ -94,7 +94,7 @@ const LandingPage = () => {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
-              <a href="/" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+              <a href="/Register" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
                 Register here for an account
               </a>
             </p>
@@ -136,7 +136,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
                   id="remember-me"
@@ -155,7 +155,7 @@ const LandingPage = () => {
                   Forgot your password?
                 </a>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <button
@@ -164,7 +164,7 @@ const LandingPage = () => {
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#3C7699] py-2 px-4 text-sm font-medium text-white hover:bg-[#0678be] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <LockClosedIcon className="h-5 w-5 text-white group-hover:text-[#030303] " aria-hidden="true" />
+                  <LockClosedIcon className="h-5 w-5 text-white " aria-hidden="true" />
                 </span>
                 Sign in
               </button>

@@ -128,7 +128,7 @@ const AddClient = () => {
           value={id ? 'Update' : 'Save'}
           className=" w-full bg-[#40453e] text-white py-4 px-5  mx-2 border-none rounded-md cursor-none"
         />
-
+  
         <Link to={'/MainPage'}>
           <input
             type="button"

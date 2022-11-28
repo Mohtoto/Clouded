@@ -119,14 +119,24 @@ app.get('/api/get/:id' , (req, res) => {
 
 app.get('/api/Register' , (req,res)=>{
 
-  const sqlreg = "INSERT INTO register (email , password) VALUES ('mohtotonchy@gmail.com' , '1998')";
-
+  const sqlreg = "SELECT * FROM register";
   db.query(sqlreg, (error , result)=>{
-
-    
       console.log(error);
-      console.log(result);
+      res.send(result);
    
+  })
+})
+
+
+app.post('/api/Register/post' , (req,res)=>{
+
+  const { email , password} = req.body
+  const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)"
+  db.query(SqlRegPost ,[email , password] , (err , result)=>{
+
+    if(err){
+      console.log(err);
+    }
   })
 })
 
@@ -134,9 +144,6 @@ app.get('/api/Register' , (req,res)=>{
 
 
 
+//------------------------------------------ Server running ---------------------------------------------------// 
 
-//------------------------------------------server running ---------------------------------------------------// 
-
-app.listen(PORT, () =>
-  console.log(`server running at : http://localhost:${PORT}`)
-);
+app.listen(PORT,() => console.log(`server running at : http://localhost:${PORT}`));
