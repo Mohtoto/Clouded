@@ -8,24 +8,37 @@ import Nav from "./Nav";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import tailwind from '../assets/tailwind.png'
 import BurgerMenu from "./BurgerMenu";
+import axios from "axios";
 
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [Cursor, SetCursor] = useState("default");
+  const [dataa, setDataa] = useState([]);
   const [User, setUser] = useState("");
   const [pass, setPass] = useState("");
 
-  const { admin } = data.find((user) => user);
+  // const { admin } = data.find((user) => user);
 
   const { staff } = data.find((user) => user);
 
 
-  
+  const fetchdata = async ()=>{
+
+    const {data} =  await axios.get('http://localhost:8000/api/Register')
+ 
+
+    setDataa(data)
+  }
+
+
+
+  useEffect(() => {
+      fetchdata()
+  }, []);
  
 
   const userVlidation = () => {
-    if (User === admin.email && pass === admin.password) {
+    if (User === dataa.email && pass === dataa.password) {
       toast.success("Success login, you are logged in as an Admin", {
         position: "top-center",
         autoClose: 1500,
@@ -37,18 +50,18 @@ const LandingPage = () => {
         theme: "dark",
       });
       setTimeout(() => navigate("/MainPage"), 2000);
-    } else if (User === staff.email && pass === staff.password) {
-      toast.success("Success login, you are logged in as Staff", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      setTimeout(() => navigate("/MainPage"), 2000);
+    // } else if (User === staff.email && pass === staff.password) {
+    //   toast.success("Success login, you are logged in as Staff", {
+    //     position: "top-center",
+    //     autoClose: 2000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    //   });
+    //   setTimeout(() => navigate("/MainPage"), 2000);
     } else {
       toast.error("Wrong information, please use the provided details", {
         position: "top-center",
