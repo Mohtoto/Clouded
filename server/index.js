@@ -128,7 +128,7 @@ app.get('/api/Register' , (req,res)=>{
 })
 
 
-app.post('/api/Register/post' , (req,res)=>{
+app.post('/Register' , (req,res)=>{
 
   const { email , password} = req.body
   const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)"
