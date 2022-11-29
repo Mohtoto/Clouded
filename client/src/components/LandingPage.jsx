@@ -13,32 +13,23 @@ import axios from "axios";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [dataa, setDataa] = useState([]);
-  const [User, setUser] = useState("");
-  const [pass, setPass] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const { admin } = data.find((user) => user);
-
-  const { staff } = data.find((user) => user);
+  const [client, setClient] = useState([]);
 
 
-  const fetchdata = async ()=>{
+  const fetchdata = ()=>{
 
-    const {data} =  await axios.get('http://localhost:8000/api/Register')
- 
+    axios.post('http://localhost:8000/login', { email : email, password: password})
 
-    setDataa(data)
-  }
+    .then((resp)=>{
+
+      setClient(resp.data[0])
+    })
 
 
-
-  useEffect(() => {
-      fetchdata()
-  }, []);
- 
-
-  const userVlidation = () => {
-    if (User === dataa.email && pass === dataa.password) {
+    if (email === client.email && password === client.Password) {
       toast.success("Success login, you are logged in as an Admin", {
         position: "top-center",
         autoClose: 1500,
@@ -74,7 +65,53 @@ const LandingPage = () => {
         theme: "dark",
       });
     }
-  };
+ 
+  }
+
+  console.log(client.email, client.Password);
+
+
+
+
+
+  // const userVlidation = () => {
+  //   if (email === client.email && password === client.password) {
+  //     toast.success("Success login, you are logged in as an Admin", {
+  //       position: "top-center",
+  //       autoClose: 1500,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: false,
+  //       draggable: false,
+  //       progress: undefined,
+  //       theme: "dark",
+  //     });
+  //     setTimeout(() => navigate("/MainPage"), 2000);
+  //   // } else if (User === staff.email && pass === staff.password) {
+  //   //   toast.success("Success login, you are logged in as Staff", {
+  //   //     position: "top-center",
+  //   //     autoClose: 2000,
+  //   //     hideProgressBar: false,
+  //   //     closeOnClick: true,
+  //   //     pauseOnHover: true,
+  //   //     draggable: true,
+  //   //     progress: undefined,
+  //   //     theme: "dark",
+  //   //   });
+  //   //   setTimeout(() => navigate("/MainPage"), 2000);
+  //   } else {
+  //     toast.error("Wrong information, please use the provided details", {
+  //       position: "top-center",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "dark",
+  //     });
+  //   }
+  // };
 
   return (
     <section>
@@ -127,8 +164,8 @@ const LandingPage = () => {
                   required
                   className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Email address"
-                  onChange={(e) =>  setUser(e.target.value)}
-                  value={User}
+                  onChange={(e) =>  setEmail(e.target.value)}
+                  value={email}
                 />
               </div>
               <div>
@@ -143,8 +180,8 @@ const LandingPage = () => {
                   required
                   className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Password"
-                  onChange={(e) =>  setPass(e.target.value)}
-                  value={pass}
+                  onChange={(e) =>  setPassword(e.target.value)}
+                  value={password}
                 />
               </div>
             </div>
@@ -172,7 +209,7 @@ const LandingPage = () => {
 
             <div>
               <button
-                onClick={userVlidation}
+                onClick={fetchdata}
               
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#3C7699] py-2 px-4 text-sm font-medium text-white hover:bg-[#0678be] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >

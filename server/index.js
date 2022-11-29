@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const PORT = 8000;
 const mysql = require("mysql2");
 const { json } = require("express");
+const e = require("express");
 const app = express();
 // ---------------------------------------------------------------------------//
 
@@ -35,8 +36,6 @@ const db = mysql.createPool({
 
 // })
 
-
-
 app.get("/api/get", (req, res) => {
   const sqlget = "SELECT * FROM users";
   db.query(sqlget, (error, result) => {
@@ -56,95 +55,78 @@ app.post("/api/post", (req, res) => {
   });
 });
 
+app.delete("/api/remove/:id", (req, res) => {
+  const { id } = req.params;
 
+  const SqlRemove = "DELETE FROM users WHERE id=?";
 
-app.delete('/api/remove/:id' , (req, res) => {
-
-  const { id } = req.params
-
-  const SqlRemove = 'DELETE FROM users WHERE id=?'
-
-  db.query(SqlRemove ,id , (err , result)=> {
-
-    if(err){
-
+  db.query(SqlRemove, id, (err, result) => {
+    if (err) {
       console.log(err);
     }
-  })
+  });
+});
 
+app.put("/api/update/:id", (req, res) => {
+  const { id } = req.params;
 
-})
+  const { name, email, contact } = req.body;
 
+  const sqlUpdate =
+    "UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? ";
 
-app.put('/api/update/:id' , (req, res) => {
-
-  const { id } = req.params
-
-  const { name, email , contact}= req.body
-
-  const sqlUpdate = 'UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? '
-
-  db.query(sqlUpdate ,[ name , email , contact , id] , (err , result)=> {
-
-    if(err){
+  db.query(sqlUpdate, [name, email, contact, id], (err, result) => {
+    if (err) {
       console.log(err);
-
     }
-    res.send(result)
-  })
+    res.send(result);
+  });
+});
 
+app.get("/api/get/:id", (req, res) => {
+  const { id } = req.params;
 
-})
+  const sqlget = "SELECT * FROM users WHERE id=?";
 
-
-
-app.get('/api/get/:id' , (req, res) => {
-
-  const { id } = req.params
-
-  const sqlget = 'SELECT * FROM users WHERE id=?'
-
-  db.query(sqlget ,id , (err , result)=> {
-
-    if(err){
-        console.log(err);
+  db.query(sqlget, id, (err, result) => {
+    if (err) {
+      console.log(err);
     }
-    res.send(result)
-  })
+    res.send(result);
+  });
+});
 
+//------------------------------------------Register api ---------------------------------------------------//
 
-})
-
-//------------------------------------------Register api ---------------------------------------------------// 
-
-app.get('/api/Register' , (req,res)=>{
-
-  const sqlreg = "SELECT * FROM register";
-  db.query(sqlreg, (error , result)=>{
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const sqlreg = "SELECT * FROM register WHERE email = ? AND password = ?";
+  db.query(sqlreg, [email, password], (error, result) => {
+    if (error) {
       console.log(error);
+    }
+
+    if (result.length > 0) {
       res.send(result);
-   
-  })
-})
+    } else {
+      res.send({ message: "Wrong combination" });
+    }
+  });
+});
 
-
-app.post('/Register' , (req,res)=>{
-
-  const { email , password} = req.body
-  const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)"
-  db.query(SqlRegPost ,[email , password] , (err , result)=>{
-
-    if(err){
+app.post("/Register", (req, res) => {
+  const { email, password } = req.body;
+  const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)";
+  db.query(SqlRegPost, [email, password], (err, result) => {
+    if (err) {
       console.log(err);
     }
-  })
-})
+  });
+});
 
+//------------------------------------------ Server running ---------------------------------------------------//
 
-
-
-
-//------------------------------------------ Server running ---------------------------------------------------// 
-
-app.listen(PORT,() => console.log(`server running at : http://localhost:${PORT}`));
-
+app.listen(PORT, () =>
+  console.log(`server running at : http://localhost:${PORT}`)
+);
