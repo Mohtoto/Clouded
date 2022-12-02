@@ -11,20 +11,6 @@ body{
 
 }
 
-.input{
-
-    background-color:#FFFFFF;
-    width: 600px;
-
-    padding: 20px;
-    border: none;
-    outline: none;
-
-
-
-
-
-}
 
 
 .input::placeholder{
@@ -75,7 +61,7 @@ body{
 
 input[type='text'],
 input[type='email'],
-input[type='number'],
+input[type='password'],
 select{
 
 

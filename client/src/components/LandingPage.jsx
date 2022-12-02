@@ -30,7 +30,7 @@ const LandingPage = () => {
 
 
     if (email === client.email && password === client.Password) {
-      toast.success("Success login, you are logged in as an Admin", {
+      toast.success("You have succesfully logged in", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
@@ -41,18 +41,31 @@ const LandingPage = () => {
         theme: "dark",
       });
       setTimeout(() => navigate("/MainPage"), 2000);
-    // } else if (User === staff.email && pass === staff.password) {
-    //   toast.success("Success login, you are logged in as Staff", {
-    //     position: "top-center",
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "dark",
-    //   });
-    //   setTimeout(() => navigate("/MainPage"), 2000);
+    } else if (email === 'admin@clouded.com' && password === 'admin') {
+      toast.success("Success login, you are logged in as admin", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      setTimeout(() => navigate("/MainPage"), 2000);
+    }
+      else if (email === 'staff@clouded.com' && password === 'staff') {
+        toast.success("Success login, you are logged in as staff", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setTimeout(() => navigate("/MainPage"), 2000);
     } else {
       toast.error("Wrong information, please use the provided details", {
         position: "top-center",
@@ -68,54 +81,13 @@ const LandingPage = () => {
  
   }
 
-  console.log(client.email, client.Password);
 
 
 
-
-
-  // const userVlidation = () => {
-  //   if (email === client.email && password === client.password) {
-  //     toast.success("Success login, you are logged in as an Admin", {
-  //       position: "top-center",
-  //       autoClose: 1500,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: false,
-  //       draggable: false,
-  //       progress: undefined,
-  //       theme: "dark",
-  //     });
-  //     setTimeout(() => navigate("/MainPage"), 2000);
-  //   // } else if (User === staff.email && pass === staff.password) {
-  //   //   toast.success("Success login, you are logged in as Staff", {
-  //   //     position: "top-center",
-  //   //     autoClose: 2000,
-  //   //     hideProgressBar: false,
-  //   //     closeOnClick: true,
-  //   //     pauseOnHover: true,
-  //   //     draggable: true,
-  //   //     progress: undefined,
-  //   //     theme: "dark",
-  //   //   });
-  //   //   setTimeout(() => navigate("/MainPage"), 2000);
-  //   } else {
-  //     toast.error("Wrong information, please use the provided details", {
-  //       position: "top-center",
-  //       autoClose: 3000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "dark",
-  //     });
-  //   }
-  // };
 
   return (
     <section>
-      <div className=" w-full max-w-6xl m-auto">
+      <div className=" w-full max-w-6xl m-auto overflow-hidden">
 
         <Nav />
 

@@ -98,6 +98,17 @@ app.get("/api/get/:id", (req, res) => {
 
 //------------------------------------------Register api ---------------------------------------------------//
 
+
+app.get('/get/Register', (req,res)=>{
+
+  const getRegsiter = 'SELECT * FROM register'  
+  db.query(getRegsiter , (err, result)=>{
+
+    console.log(err);
+    res.send(result)
+  })
+})
+
 app.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
