@@ -39,7 +39,7 @@ const MainPage = () => {
                   Clients
                 </div>
                 <div className="mt-1 text-3xl font-semibold text-gray-900">
-                  2
+                  3
                 </div>
               </div>
               <div className="w-full px-4 py-5 bg-white rounded-lg shadow ">
