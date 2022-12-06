@@ -15,8 +15,25 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [client, setClient] = useState([]);
+
+  const [data, setData] = useState([]);
+
+
+  const dataGet = async ()=>{
+
+
+   const {data} = await axios.get("http://localhost:8000/api/get")
+ 
+    console.log(data);
+  }
+
+  useEffect(() => {
+    dataGet()
+  }, []);
+
+
+  
 
 
   const fetchdata = ()=>{

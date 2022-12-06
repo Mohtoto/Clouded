@@ -45,10 +45,10 @@ app.get("/api/get", (req, res) => {
 });
 
 app.post("/api/post", (req, res) => {
-  const { name, email, contact } = req.body;
+  const { name, email, contact , password } = req.body;
   const sqlinsert =
-    "INSERT INTO users (name , email , contact) VALUES ( ? , ? , ? )";
-  db.query(sqlinsert, [name, email, contact], (error, result) => {
+    "INSERT INTO users (name , email , contact , password) VALUES ( ? , ? , ? , ? )";
+  db.query(sqlinsert, [name, email, contact , password], (error, result) => {
     if (error) {
       console.log(error);
     }
@@ -70,12 +70,12 @@ app.delete("/api/remove/:id", (req, res) => {
 app.put("/api/update/:id", (req, res) => {
   const { id } = req.params;
 
-  const { name, email, contact } = req.body;
+  const { name, email, contact , password } = req.body;
 
   const sqlUpdate =
-    "UPDATE users SET name= ? ,email =? ,  contact = ? WHERE id =? ";
+    "UPDATE users SET name= ? ,email =? ,  contact = ? , password=? , WHERE id =? ";
 
-  db.query(sqlUpdate, [name, email, contact, id], (err, result) => {
+  db.query(sqlUpdate, [name, email, contact, password ,id], (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -99,42 +99,42 @@ app.get("/api/get/:id", (req, res) => {
 //------------------------------------------Register api ---------------------------------------------------//
 
 
-app.get('/get/Register', (req,res)=>{
+// app.get('/get/Register', (req,res)=>{
 
-  const getRegsiter = 'SELECT * FROM register'  
-  db.query(getRegsiter , (err, result)=>{
+//   const getRegsiter = 'SELECT * FROM register'  
+//   db.query(getRegsiter , (err, result)=>{
 
-    console.log(err);
-    res.send(result)
-  })
-})
+//     console.log(err);
+//     res.send(result)
+//   })
+// })
 
-app.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const sqlreg = "SELECT * FROM register WHERE email = ? AND password = ?";
-  db.query(sqlreg, [email, password], (error, result) => {
-    if (error) {
-      console.log(error);
-    }
+// app.post("/login", (req, res) => {
+//   const email = req.body.email;
+//   const password = req.body.password;
+//   const sqlreg = "SELECT * FROM register WHERE email = ? AND password = ?";
+//   db.query(sqlreg, [email, password], (error, result) => {
+//     if (error) {
+//       console.log(error);
+//     }
 
-    if (result.length > 0) {
-      res.send(result);
-    } else {
-      res.send({ message: "Wrong combination" });
-    }
-  });
-});
+//     if (result.length > 0) {
+//       res.send(result);
+//     } else {
+//       res.send({ message: "Wrong combination" });
+//     }
+//   });
+// });
 
-app.post("/Register", (req, res) => {
-  const { email, password } = req.body;
-  const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)";
-  db.query(SqlRegPost, [email, password], (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-});
+// app.post("/Register", (req, res) => {
+//   const { email, password } = req.body;
+//   const SqlRegPost = "INSERT INTO register ( email , password) VALUES ( ? , ?)";
+//   db.query(SqlRegPost, [email, password], (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//   });
+// });
 
 //------------------------------------------ Server running ---------------------------------------------------//
 

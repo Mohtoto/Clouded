@@ -8,6 +8,9 @@ const Register = () => {
   const [password, setPassword] = useState("");
 
   const PostData = () => {
+
+
+    
     axios
       .post("http://localhost:8000/Register", {
         email: email,
