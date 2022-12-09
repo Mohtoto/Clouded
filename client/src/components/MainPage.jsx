@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 const MainPage = () => {
   const [dataa, setData] = useState([]);
@@ -68,6 +69,7 @@ const MainPage = () => {
 				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
 				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email</th>
 				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Contact</th>
+				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Password</th>
 				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
 			</tr>
 		</thead>
@@ -75,9 +77,10 @@ const MainPage = () => {
 
     {dataa.map((item, index) => (
 			<tr className="bg-gray-300 border border-grey-500 md:border-none block md:table-row" key={index}>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Name</span>{item.name}</td>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Email</span>{item.email}</td>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Contact</span>{item.contact}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.name}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.email}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.contact}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.contact}</td>
 				
 				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span className="inline-block w-1/3 md:hidden font-bold">Actions</span>
@@ -97,81 +100,6 @@ const MainPage = () => {
 			
 		</tbody>
 	</table>
-
-
-
-{/* 
-        <div classNameName="table__info container flex justify-center mx-auto  mt-80">
-          <div className="flex flex-col">
-            <div className="w-full">
-              <div className="border-b border-gray-200 shadow">
-                <table className="divide-y divide-gray-300 ">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-2 text-xs text-gray-500">No</th>
-                      <th className="px-6 py-2 text-xs text-gray-500">Name</th>
-                      <th className="px-6 py-2 text-xs text-gray-500">Email</th>
-                      <th className="px-6 py-2 text-xs text-gray-500">
-                        Contact
-                      </th>
-                      <th className="px-6 py-2 text-xs text-gray-500 "></th>
-                      <th className="px-6 py-2 text-xs text-gray-500">
-                        Action
-                      </th>
-                      <th className="px-6 py-2 text-xs text-gray-500"></th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-300">
-                    {dataa.map((item, index) => (
-                      <tr className="whitespace-nowrap" key={index}>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          {index + 1}
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm text-gray-900">
-                            {item.name}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm text-gray-500">
-                            {item.email}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          {item.contact}
-                        </td>
-                        <td className="px-2 py-4">
-                          <Link
-                            to={`/update/${item.id}`}
-                            className="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full"
-                          >
-                            Update
-                          </Link>
-                        </td>
-                        <td className="px-2 py-4">
-                          <button
-                            onClick={() => HandleDelete(item.id)}
-                            className="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
-                          >
-                            Delete
-                          </button>
-                        </td>
-                        <td className="px-2 py-4">
-                          <Link
-                            to={"/View/" + item.id}
-                            className="px-4 py-1 text-sm  text-black bg-red-200 rounded-full"
-                          >
-                            View
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -5,20 +5,33 @@ import Nav from "./Nav";
 
 const Register = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
 
   const PostData = () => {
-
-
     
-    axios
-      .post("http://localhost:8000/Register", {
-        email: email,
-        password: password,
-      })
-      .then((resp) => {
-        console.log(resp);
-      });
+
+    if(!name || !email || !password || !contact ){
+
+      toast.error('please enter in the fields provided')
+    }
+
+
+    else { 
+
+      axios
+        .post("http://localhost:8000/api/post", {
+          name : name,
+          email: email,
+          contact : contact,
+          password: password,
+        })
+        .catch((err)=> toast.error(err.response.data))
+          toast.success('Contact added Successfully')
+
+    }
+    
   };
 
   console.log(email);
@@ -35,6 +48,18 @@ const Register = () => {
           </h1>
 
           <div className="flex flex-col items-center mt-11 w-full gap-8">
+            <div className="flex flex-col items-center justify-center w-full gap-5">
+              <label htmlFor="email" className="font-bold text-3xl">
+                Full Name
+              </label>
+              <input
+                name="Full Name"
+                type="Full Name"
+                className="w-full max-w-2xl h-14 rounded-sm outline-none p-5"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
             <div className="flex flex-col items-center justify-center w-full gap-5">
               <label htmlFor="email" className="font-bold text-3xl">
                 Email
@@ -58,6 +83,18 @@ const Register = () => {
                 className="w-full max-w-2xl h-14 rounded-sm outline-none p-5"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center w-full gap-5">
+              <label htmlFor="email" className="font-bold text-3xl">
+                Contact
+              </label>
+              <input
+                name="Contact"
+                type="Contact"
+                className="w-full max-w-2xl h-14 rounded-sm outline-none p-5"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
               />
             </div>
 
