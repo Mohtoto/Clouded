@@ -23,7 +23,7 @@ const closeMenu =() =>{
 
   return (
     <nav
-      className="group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative " >
+      className=" group w-full max-w-7xl m-auto h-20 p-8 flex items-center justify-between relative " >
       <div className="logocont flex items-center">
         <motion.img
           initial={{

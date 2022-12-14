@@ -17,7 +17,7 @@ const LandingPage = () => {
   const [password, setPassword] = useState("");
   const [client, setClient] = useState([]);
 
-  const [data, setData] = useState([]);
+  const [database, setDatabase] = useState([]);
 
 
   const dataGet = async ()=>{
@@ -25,7 +25,7 @@ const LandingPage = () => {
 
    const {data} = await axios.get("http://localhost:8000/api/get")
  
-    console.log(data);
+   setDatabase(data)
   }
 
   useEffect(() => {
@@ -33,20 +33,20 @@ const LandingPage = () => {
   }, []);
 
 
-  
+  console.log(database);
 
 
   const fetchdata = ()=>{
 
-    axios.post('http://localhost:8000/login', { email : email, password: password})
+    // axios.post('http://localhost:8000/post', { email : email, password: password})
 
-    .then((resp)=>{
+    // .then((resp)=>{
 
-      setClient(resp.data[0])
-    })
+    //   setClient(resp.data[0])
+    // })
 
 
-    if (email === client.email && password === client.Password) {
+    if (email === database.email && password === database.Password) {
       toast.success("You have succesfully logged in", {
         position: "top-center",
         autoClose: 1500,
@@ -103,7 +103,7 @@ const LandingPage = () => {
 
 
   return (
-    <section>
+    <section className="h-screen bg-[url('/src/assets/Vector.svg')] bg-no-repeat bg-contain bg-left" >
       <div className=" w-full max-w-6xl m-auto overflow-hidden">
 
         <Nav />
