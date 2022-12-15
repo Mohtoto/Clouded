@@ -103,7 +103,7 @@ const LandingPage = () => {
 
 
   return (
-    <section className="h-screen bg-[url('/src/assets/Vector.svg')] bg-no-repeat bg-contain bg-left" >
+    <section className="h-screen bg-[url('/src/assets/Vec.svg')] bg-no-repeat bg-contain bg-left" >
       <div className=" w-full max-w-6xl m-auto overflow-hidden">
 
         <Nav />
@@ -175,32 +175,11 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-[#3C7699] focus:ring-indigo-500"
-                 
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-[#3C7699] hover:text-[#194663]">
-                  Forgot your password?
-                </a>
-              </div>
-            </div> */}
-
             <div>
               <button
                 onClick={fetchdata}
               
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#3C7699] py-2 px-4 text-sm font-medium text-white hover:bg-[#0678be] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#0a0a0a] py-2 px-4 text-sm font-medium text-white hover:bg-[#242729] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <LockClosedIcon className="h-5 w-5 text-white " aria-hidden="true" />

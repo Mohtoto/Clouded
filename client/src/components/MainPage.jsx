@@ -29,7 +29,7 @@ const MainPage = () => {
   console.log(dataa);
 
   return (
-    <div className="flex w-full min-h-screen">
+    <div className="flex w-full min-h-screen bg-[url('/src/assets/Vec2.svg')] bg-no-repeat bg-contain bg-right ">
       <Sidebar />
       <div className="row">
         <div className=" group-bubbles container mx-auto mt-12">
