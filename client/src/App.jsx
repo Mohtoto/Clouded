@@ -9,10 +9,19 @@ import AddClient from "./components/AddClient";
 import View from "./components/View";
 import Update from "./components/Update";
 
+
+
+
 function App() {
+
+
+
   return (
     <Router>
+
     <div className=" min-h-screen">
+    
+
       <ToastContainer position="top-center" />
       <Routes>
         <Route exact path="/" element={<LandingPage />} />

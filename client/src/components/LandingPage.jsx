@@ -9,6 +9,7 @@ import { LockClosedIcon } from '@heroicons/react/20/solid'
 import tailwind from '../assets/tailwind.png'
 import BurgerMenu from "./BurgerMenu";
 import axios from "axios";
+import { Squeeze as Hamburger } from 'hamburger-react'
 
 
 const LandingPage = () => {
@@ -18,7 +19,7 @@ const LandingPage = () => {
   const [client, setClient] = useState([]);
 
   const [database, setDatabase] = useState([]);
-
+  const [menu, setMenu] = useState('');
 
   const dataGet = async ()=>{
 
@@ -27,13 +28,12 @@ const LandingPage = () => {
  
    setDatabase(data)
   }
-
   useEffect(() => {
     dataGet()
   }, []);
 
 
-  console.log(database);
+  // console.log(database);
 
 
   const fetchdata = ()=>{
@@ -103,21 +103,23 @@ const LandingPage = () => {
 
 
   return (
-    <section className="h-screen bg-[url('/src/assets/Vec.svg')] bg-no-repeat bg-contain bg-left" >
+    <section  className={"h-screen bg-[url('/src/assets/Vec.svg')] bg-no-repeat bg-contain bg-left"} >
       <div className=" w-full max-w-6xl m-auto overflow-hidden">
+
+       <Hamburger className="ham" size={20} direction={"right"} color={'white'} />
 
         <Nav />
 
        
 
      
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{ marginTop:'150px'}}>
+        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-36 main-page-phone" >
         <div className="w-full max-w-md space-y-8">
           <div>
             <div className="flex items-center justify-center">
             <div className="mt-2 text-sm text-gray-600">
           
-              <h2 className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+              <h2 className="font-medium text-gray-900 hover:text-[#0d7bbe]">
                 Made with tailwind
               </h2>
             </div>
