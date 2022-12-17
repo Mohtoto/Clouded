@@ -106,7 +106,6 @@ const LandingPage = () => {
     <section  className={"h-screen bg-[url('/src/assets/Vec.svg')] bg-no-repeat bg-contain bg-left"} >
       <div className=" w-full max-w-6xl m-auto overflow-hidden">
 
-       <Hamburger className="ham" size={20} direction={"right"} color={'white'} />
 
         <Nav />
 
@@ -135,7 +134,7 @@ const LandingPage = () => {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
-              <a href="/Register" className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
+              <a href="/Register" className="font-medium text-[#3C7699] hover:text-[#0d7bbe] ">
                 Register here for an account
               </a>
             </p>
