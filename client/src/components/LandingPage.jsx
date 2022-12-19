@@ -21,19 +21,32 @@ const LandingPage = () => {
   const [database, setDatabase] = useState([]);
   const [menu, setMenu] = useState('');
 
-  const dataGet = async ()=>{
+  // const dataGet = async ()=>{
 
 
-   const {data} = await axios.get("http://localhost:8000/api/get")
+  //  const {data} = await axios.get("http://localhost:8000/api/get")
  
-   setDatabase(data)
-  }
+  //  setDatabase(data)
+  //  dataGet()
+  // }
+  
+
   useEffect(() => {
+
+    const dataGet= async ()=>{
+      const {data} = await axios.get("http://localhost:8000/api/get")
+ 
+      setDatabase(data)
+      
+    }
+
     dataGet()
   }, []);
 
+  console.log(database);
 
-  // console.log(database);
+ 
+ 
 
 
   const fetchdata = ()=>{
