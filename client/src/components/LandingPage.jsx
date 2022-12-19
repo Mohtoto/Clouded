@@ -47,7 +47,7 @@ const LandingPage = () => {
 
  
  
-
+ 
 
   const fetchdata = ()=>{
 
@@ -126,12 +126,12 @@ const LandingPage = () => {
 
      
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-36 main-page-phone" >
-        <div className="w-full max-w-md space-y-8">
+        <div className="w-full max-w-md space-y-8  mt-16">
           <div>
             <div className="flex items-center justify-center">
             <div className="mt-2 text-sm text-gray-600">
           
-              <h2 className="font-medium text-gray-900 hover:text-[#0d7bbe]">
+              <h2 className="font-medium text-[#3C7699] hover:text-[#0d7bbe]">
                 Made with tailwind
               </h2>
             </div>
@@ -193,7 +193,7 @@ const LandingPage = () => {
               <button
                 onClick={fetchdata}
               
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#0a0a0a] py-2 px-4 text-sm font-medium text-white hover:bg-[#242729] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#02090e] py-2 px-4 text-sm font-medium text-white hover:bg-[#242729] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <LockClosedIcon className="h-5 w-5 text-white " aria-hidden="true" />

@@ -4,6 +4,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
+import ReorderIcon from "@mui/icons-material/Reorder";
+
 
 const MainPage = () => {
   const [dataa, setData] = useState([]);
@@ -29,8 +31,11 @@ const MainPage = () => {
   console.log(dataa);
 
   return (
-    <div className="flex w-full min-h-screen bg-[url('/src/assets/Vec2.svg')] bg-no-repeat bg-contain bg-right ">
+    <div className="flex w-full min-h-screen bg-[url('/src/assets/vec4.svg')] bg-no-repeat bg-contain bg-right ">
       <Sidebar />
+      <div className="absolute top-0 right-0 px-8 py-8 text-white">
+            <ReorderIcon  />
+      </div>
       <div className="row">
         <div className=" group-bubbles container mx-auto mt-12">
         
@@ -73,14 +78,14 @@ const MainPage = () => {
 				<th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
 			</tr>
 		</thead>
-		<tbody className="block md:table-row-group">
+		<tbody className=" md:table-row-group flex flex-col items-start">
 
     {dataa.map((item, index) => (
-			<tr className="bg-gray-300 border border-grey-500 md:border-none block md:table-row" key={index}>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.name}</td>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.email}</td>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.contact}</td>
-				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold"></span>{item.contact}</td>
+			<tr className="bg-gray-300 border border-grey-500 md:border-none  md:table-row p-5 flex flex-col" key={index}>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Name</span>{item.name}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Email</span>{item.email}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Contact</span>{item.contact}</td>
+				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Password</span>{item.contact}</td>
 				
 				<td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
 					<span className="inline-block w-1/3 md:hidden font-bold">Actions</span>
