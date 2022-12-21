@@ -17,13 +17,13 @@ const Nav = () => {
 
   return (
    
-      <nav className=" p-4">
+      <nav className="p-4">
 
 
         {/*    MOBILE-MENU    */}
 
 
-        <section className=" flex lg:hidden">
+        <section className=" flex lg:hidden ">
           <div className="absolute top-0 right-0 px-8 py-8" onClick={() => setIsNavOpen(true)}>
             <ReorderIcon  />
           </div>
@@ -47,10 +47,11 @@ const Nav = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/MainPage">View</Link>
+                  <Link to="/MainPage">View Clients</Link>
                 </li>
+               
                 <li>
-                  <Link to="/Aboutus">About us</Link>
+                  <Link to="/addClient">Add new Client</Link>
                 </li>
               </motion.ul>
          
