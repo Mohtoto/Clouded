@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const PORT = 8000;
 const mysql = require("mysql2");
 const { json } = require("express");
-const e = require("express");
 const app = express();
 
 

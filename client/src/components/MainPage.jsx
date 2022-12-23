@@ -31,7 +31,7 @@ const MainPage = () => {
   };
 
   console.log(dataa);
-  // {menu ? 'showMenuNav' : 'hideMenuNav'}
+  
   return (
     <div className="flex w-full min-h-screen bg-[url('/src/assets/vec4.svg')] bg-no-repeat bg-contain bg-right">
       <Sidebar />

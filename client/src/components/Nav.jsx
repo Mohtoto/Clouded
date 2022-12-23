@@ -5,6 +5,7 @@ import logo from "../assets/avatar.svg";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import CloseIcon from "@mui/icons-material/Close";
 import { Divide as Hamburger } from "hamburger-react";
+import SidebarLists from "./SidebarLists";
 
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
@@ -29,6 +30,17 @@ const Nav = () => {
           </div>
 
           <motion.div
+             initial={{
+              x: 100,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{ delay: 0.5 ,  type: "spring", stiffness: 100}}
+           
+
           
           className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             {" "}
@@ -39,11 +51,12 @@ const Nav = () => {
 
             </div>
             
-              <motion.ul
+              <ul
+                
                 className={'MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]'}
                
               >
-                <li>
+                {/* <li>
                   <Link to="/">Home</Link>
                 </li>
                 <li>
@@ -52,8 +65,11 @@ const Nav = () => {
                
                 <li>
                   <Link to="/addClient">Add new Client</Link>
-                </li>
-              </motion.ul>
+                </li> */}
+
+
+                <SidebarLists />
+              </ul>
          
           </motion.div>
         </section>

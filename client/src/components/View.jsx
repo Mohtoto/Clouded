@@ -18,36 +18,36 @@ const View = () => {
 
   console.log(user);
   return (
-    <>
+    <div className="flex w-full min-h-screen bg-[url('/src/assets/vec.svg')] bg-no-repeat bg-contain bg-left">
     <Nav />
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div class="w-full max-w-md p-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex items-center justify-between mb-4">
-          <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white uppercase ">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
+      <div className="w-full max-w-md p-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700 ">
+        <div className="flex items-center justify-between mb-4">
+          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white uppercase ">
             client {user.id}
           </h5>
         
         </div>
-        <div class="flow-root">
-          <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-            <li class="py-3 sm:py-4">
-              <div class="flex items-center space-x-4">
-                <div class="flex-shrink-0">
+        <div className="flow-root">
+          <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+            <li className="py-3 sm:py-4">
+              <div className="flex items-center space-x-4">
+                <div className="flex-shrink-0">
                   <img
-                    class="w-8 h-8 invert  "
+                    className="w-8 h-8 invert  "
                     src={avatar}
                     alt="Neil image"
                   />
                 </div>
-                <div class="flex-1 min-w-0">
-                  <p class="text-sm font-medium text-gray-900 truncate dark:text-white transform uppercase ">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white transform uppercase ">
                     {user.name}
                   </p>
-                  <p class="text-sm text-gray-500 truncate dark:text-gray-400 ">
+                  <p className="text-sm text-gray-500 truncate dark:text-gray-400 ">
                     {user.email}
                   </p>
                 </div>
-                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                   {user.contact}
                 </div>
               </div>
@@ -56,7 +56,7 @@ const View = () => {
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
