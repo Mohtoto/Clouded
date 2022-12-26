@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import data from "../../database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Nav from "./Nav";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import tailwind from '../assets/tailwind.png'
 import axios from "axios";
-import { Squeeze as Hamburger } from 'hamburger-react'
+import logo from "../assets/avatar.svg";
+
 
 
 const LandingPage = () => {
@@ -119,8 +118,62 @@ const LandingPage = () => {
       <div className=" w-full max-w-6xl m-auto overflow-hidden">
 
 
-        <Nav />
+       
+      <div className="flex items-center justify-between p-5">
+          <div className="logocont flex items-center">
+            <motion.img
+              initial={{
+                y: -100,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{ duration: 0.5 }}
+              className="w-14 h-14"
+              src={logo}
+              alt=""
+            />
+            <motion.h2
+              initial={{
+                x: -50,
 
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              className="font-bold text-[#3C7699]"
+            >
+              Clouded
+            </motion.h2>
+          </div>
+
+          <motion.ul
+            initial={{
+              y: -100,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            transition={{ duration: 0.5 }}
+            className="lists flex gap-4 font-bold text-[#3C7699] text-lg"
+          >
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/MainPage">View</Link>
+            </li>
+            <li>
+              <Link to="/Aboutus">About us</Link>
+            </li>
+          </motion.ul>
+        </div>
        
 
      

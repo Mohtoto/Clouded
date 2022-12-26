@@ -72,10 +72,14 @@ const AddClient = () => {
 
   return (
     <>
+
+    <div className="row">
+
+    
       <Nav />
 
       <form
-        className="absolute  top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 "
+        className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-full max-w-sm p-4 md:max-w-2xl"
         onSubmit={handleSubmit}
       >
         {/* ======================================================*/}
@@ -86,7 +90,7 @@ const AddClient = () => {
           type="text"
           name="name"
           placeholder="John Doe"
-          className="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          className="mt-1  border-none focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           value={name || ""}
           onChange={handleInputChange}
         />
@@ -146,6 +150,7 @@ const AddClient = () => {
           />
         </Link>
       </form>
+      </div>
     </>
   );
 };
