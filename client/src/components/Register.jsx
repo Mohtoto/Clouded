@@ -39,22 +39,22 @@ const Register = () => {
 
   return (
     <div className="w-full min-h-screen">
-      <Nav />
 
       <div className="row">
-        <div className=" absolute top-1/4 flex flex-col items-center">
-          <h1 className="font-bold text-6xl text-[#3C7699]">
+        <Nav />
+        <div className="absolute top-8 flex flex-col items-center">
+          <h1 className="font-bold text-3xl text-[#3C7699] text-center mt-5">
             Please Register your account here
           </h1>
 
-          <div className="flex flex-col items-center mt-11 w-full gap-8">
+          <div className="flex flex-col items-center mt-11 w-full gap-2 p-6">
             <div className="flex flex-col items-center justify-center w-full gap-5">
               <label htmlFor="email" className="font-bold text-3xl">
                 Full Name
               </label>
               <input
                 name="Full Name"
-                type="Full Name"
+                type="text"
                 className="w-full max-w-2xl h-14 rounded-sm outline-none p-5"
                 value={name}
                 onChange={(e) => setName(e.target.value)}

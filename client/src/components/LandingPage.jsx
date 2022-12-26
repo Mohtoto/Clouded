@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import tailwind from '../assets/tailwind.png'
-import BurgerMenu from "./BurgerMenu";
 import axios from "axios";
 import { Squeeze as Hamburger } from 'hamburger-react'
 
