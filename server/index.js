@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const PORT = 8000;
+const port = process.env.PORT || 8000;
 const mysql = require("mysql2");
 const { json } = require("express");
 const app = express();
@@ -139,6 +139,13 @@ app.get("/api/get/:id", (req, res) => {
 
 //------------------------------------------ Server running ---------------------------------------------------//
 
-app.listen(PORT, () =>
-  console.log(`server running at : http://localhost:${PORT}`)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+  });
+}
+
+app.listen(port, () =>
+  console.log(`server running at : http://localhost:${port}`)
 );
