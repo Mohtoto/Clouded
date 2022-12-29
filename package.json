@@ -6,10 +6,10 @@
   "main": "./server/index.js",
   "proxy": "http://localhost:8000",
   "scripts": {
-    "dev": "vite",
+    "dev": "node ./server/index.js && npm run build",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node ./server/index.js && npm run build"
+    "start": " cd server && npm install && cd .. && npm run dev"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
