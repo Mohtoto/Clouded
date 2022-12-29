@@ -6,7 +6,7 @@
   "main": "./server/index.js",
   "proxy": "http://localhost:8000",
   "scripts": {
-    "dev": "npm run build && node ./server/index.js ",
+    "dev": "node ./server/index.js && npm run build",
     "build": "vite build",
     "preview": "vite preview",
     "start": " cd server && npm install && cd .. && npm run dev"
