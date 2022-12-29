@@ -12,7 +12,7 @@ const View = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/" + id)
+      .get("/api/get/" + id)
       .then((resp) => setUser({ ...resp.data[0] }));
   }, [id]);
 

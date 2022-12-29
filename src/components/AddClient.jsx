@@ -22,7 +22,7 @@ const AddClient = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/" + id)
+      .get("/api/get/" + id)
       .then((resp) => setstate({ ...resp.data[0] }));
   }, [id]);
 
@@ -40,7 +40,7 @@ const AddClient = () => {
     } else {
       if (!id) {
         axios
-          .post("http://localhost:8000/api/post", {
+          .post("/api/post", {
             name,
             email,
             contact,
@@ -53,7 +53,7 @@ const AddClient = () => {
         toast.success("Contact added Successfully");
       } else {
         axios
-          .put("http://localhost:8000/api/update/" + id, {
+          .put("/api/update/" + id, {
             name,
             email,
             contact,

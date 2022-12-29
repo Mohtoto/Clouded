@@ -22,7 +22,7 @@ const LandingPage = () => {
   // const dataGet = async ()=>{
 
 
-  //  const {data} = await axios.get("http://localhost:8000/api/get")
+  //  const {data} = await axios.get("/api/get")
  
   //  setDatabase(data)
   //  dataGet()
@@ -32,7 +32,7 @@ const LandingPage = () => {
   useEffect(() => {
 
     const dataGet= async ()=>{
-      const {data} = await axios.get("http://localhost:8000/api/get")
+      const {data} = await axios.get("/api/get")
  
       setDatabase(data)
       
@@ -49,7 +49,7 @@ const LandingPage = () => {
 
   const fetchdata = ()=>{
 
-    // axios.post('http://localhost:8000/post', { email : email, password: password})
+    // axios.post('/post', { email : email, password: password})
 
     // .then((resp)=>{
 

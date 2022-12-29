@@ -21,7 +21,7 @@ const Register = () => {
     else { 
 
       axios
-        .post("http://localhost:8000/api/post", {
+        .post("/api/post", {
           name : name,
           email: email,
           contact : contact,

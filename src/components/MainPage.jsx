@@ -14,7 +14,7 @@ const MainPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
 
   const datafetch = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/get");
+    const { data } = await axios.get("/api/get");
 
     setData(data);
   };
@@ -25,7 +25,7 @@ const MainPage = () => {
 
   const HandleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete the contact ?")) {
-      axios.delete("http://localhost:8000/api/remove/" + id);
+      axios.delete("/api/remove/" + id);
       toast.success("Contact deleted succesfully");
       setTimeout(() => datafetch(), 500);
     }
