@@ -5,7 +5,6 @@ const port = process.env.PORT || 8000;
 const mysql = require("mysql2");
 const { json } = require("express");
 const app = express();
-
 const path = require('path')
 // ---------------------------------------------------------------------------//
 
