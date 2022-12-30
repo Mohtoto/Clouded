@@ -44,7 +44,7 @@ const Register = () => {
         <Nav />
         <div className="absolute top-8 flex flex-col items-center">
           <h1 className="font-bold text-3xl text-[#3C7699] text-center mt-5">
-            Please Register your account here
+             Register your account here
           </h1>
 
           <div className="flex flex-col items-center mt-11 w-full gap-2 p-6">
