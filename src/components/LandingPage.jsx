@@ -172,6 +172,9 @@ const LandingPage = () => {
             <li>
               <Link to="/Aboutus">About us</Link>
             </li>
+            <li>
+              <Link to="/asdasd">About us</Link>
+            </li>
           </motion.ul>
         </div>
        

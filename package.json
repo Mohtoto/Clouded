@@ -5,11 +5,13 @@
   "type": "module",
   "main": "./server/index.js",
   "proxy": "http://localhost:8000",
+
   "scripts": {
-    "dev": "node ./server/index.js && npm run build",
+    "client":"vite",
+    "server":"node ./server/index.js",
     "build": "vite build",
     "preview": "vite preview",
-    "start": " cd server && npm install && cd .. && npm run dev"
+    "start": " cd server && npm install && cd .. && node ./server/index.js && npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
