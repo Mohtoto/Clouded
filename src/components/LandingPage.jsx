@@ -41,10 +41,14 @@ const LandingPage = () => {
     dataGet()
   }, []);
 
-  console.log(database);
+  // console.log(database);
 
+
+
+  console.log(database);
  
- 
+
+
  
 
   const fetchdata = ()=>{
@@ -57,7 +61,7 @@ const LandingPage = () => {
     // })
 
 
-    if (email === database.email && password === database.Password) {
+    if (email === database[0].email && password === database[0].password) {
       toast.success("You have succesfully logged in", {
         position: "top-center",
         autoClose: 1500,
@@ -171,9 +175,6 @@ const LandingPage = () => {
             </li>
             <li>
               <Link to="/Aboutus">About us</Link>
-            </li>
-            <li>
-              <Link to="/asdasd">About us</Link>
             </li>
           </motion.ul>
         </div>
