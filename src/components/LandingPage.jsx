@@ -46,7 +46,9 @@ const LandingPage = () => {
 
 
   console.log(database);
- 
+  console.log(database.email);
+  
+
 
 
  
@@ -60,8 +62,31 @@ const LandingPage = () => {
     //   setClient(resp.data[0])
     // })
 
+    const user = database.find((user)=>  user.email === email)
+    if(!user){
 
-    if (email === database[0].email && password === database[0].password) {
+      toast.error("Wrong information, please use the provided details", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+
+        return
+    }
+
+    
+
+  
+    // const passdata = database.find((user)=> user.password === password )
+
+
+    if (user.password === password) {
       toast.success("You have succesfully logged in", {
         position: "top-center",
         autoClose: 1500,
