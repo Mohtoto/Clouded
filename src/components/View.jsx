@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Nav from "./Nav";
-import avatar from '../assets/avat.png'
+import avatar from "../assets/avat.png";
 
 const View = () => {
   const [user, setUser] = useState({});
@@ -11,51 +11,51 @@ const View = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get("/api/get/" + id)
-      .then((resp) => setUser({ ...resp.data[0] }));
+    axios.get("/api/get/" + id).then((resp) => setUser({ ...resp.data[0] }));
   }, [id]);
 
   console.log(user);
   return (
-    <div className="flex w-full min-h-screen bg-[url('/src/assets/vec.svg')] bg-no-repeat bg-contain bg-left">
-      <Nav />
-    <div className="flex flex-col items-center justify-center min-h-screen ">
-      <div className="w-full max-w-md p-4 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700 ">
-        <div className="flex items-center justify-between mb-4">
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white uppercase ">
-            
-          </h5>
-        
-        </div>
-        <div className="flow-root">
-          <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-            <li className="py-3 sm:py-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <img
-                    className="w-8 h-8 invert  "
-                    src={avatar}
-                    alt="Neil image"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white transform uppercase ">
-                    {user.name}
-                  </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400 ">
-                    {user.email}
-                  </p>
-                </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  {user.contact}
-                </div>
-              </div>
-            </li>
-          </ul>
+    <div className="flex min-h-screen w-full bg-[url('/src/assets/vec.svg')] bg-contain bg-left bg-no-repeat">
+      <div className="row">
+        <Nav />
+        <div className="flex min-h-screen flex-col items-center justify-center p-3 ">
+          <div className="w-full max-w-md rounded-lg border bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800 sm:p-8 ">
+            <div className="mb-4 flex items-center justify-between">
+              <h5 className="text-xl font-bold uppercase leading-none text-gray-900 dark:text-white "></h5>
+            </div>
+            <div className="flow-root">
+              <ul
+                role="list"
+                className="divide-y divide-gray-200 dark:divide-gray-700"
+              >
+                <li className="py-3 sm:py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                      <img
+                        className="h-8 w-8 invert  "
+                        src={avatar}
+                        alt="Neil image"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="transform truncate text-sm font-medium uppercase text-gray-900 dark:text-white ">
+                        {user.name}
+                      </p>
+                      <p className="truncate text-sm text-gray-500 dark:text-gray-400 ">
+                        {user.email}
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                      {user.contact}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

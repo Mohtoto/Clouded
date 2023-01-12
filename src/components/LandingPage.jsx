@@ -55,13 +55,6 @@ const LandingPage = () => {
 
   const fetchdata = ()=>{
 
-    // axios.post('/post', { email : email, password: password})
-
-    // .then((resp)=>{
-
-    //   setClient(resp.data[0])
-    // })
-
     const user = database.find((user)=>  user.email === email)
     if(!user){
 
@@ -80,10 +73,6 @@ const LandingPage = () => {
         return
     }
 
-    
-
-  
-    // const passdata = database.find((user)=> user.password === password )
 
 
     if (user.password === password) {
@@ -98,32 +87,11 @@ const LandingPage = () => {
         theme: "dark",
       });
       setTimeout(() => navigate("/MainPage"), 2000);
-    } else if (email === 'admin@clouded.com' && password === 'admin') {
-      toast.success("Success login, you are logged in as admin", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      setTimeout(() => navigate("/MainPage"), 2000);
-    }
-      else if (email === 'staff@clouded.com' && password === 'staff') {
-        toast.success("Success login, you are logged in as staff", {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        setTimeout(() => navigate("/MainPage"), 2000);
-    } else {
+    } 
+  
+      
+     else {
+      
       toast.error("Wrong information, please use the provided details", {
         position: "top-center",
         autoClose: 3000,
